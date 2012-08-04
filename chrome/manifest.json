@@ -1,0 +1,13 @@
+{
+  "name": "CMInterns Extensions woohoo!",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "The first extension that I made.",
+  "browser_action": {
+    "default_icon": "assets/icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "http://api.flickr.com/"
+  ]
+}

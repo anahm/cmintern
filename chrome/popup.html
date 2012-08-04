@@ -4,8 +4,12 @@
     <title>TabStats</title>
     <style>
     	html, body {
-	    	width: 350px;
+	    	width: 300px;
 	    	font-family: "Myriad Pro", arial, sans-serif;
+	    	margin: 0;
+    	}
+    	#wrapper {
+	    	margin: 8px;
     	}
     	#logo {
 	    	font-size: 25px;
@@ -17,10 +21,32 @@
     	#logo span {
 	    	color: #6db6ef;
     	}
+    	#currentTabsNum {
+	    	color: #aaa;
+	    	font-size: 80px;
+	    	font-weight: bold;
+	    	text-align: center;
+	    	line-height: 60px;
+	    	margin-top: 20px;
+    	}
+    	#currentTabsNumDesc {
+	    	color: #ccc;
+	    	font-size: 13px;
+	    	text-align: center;
+    	}
+    	.clear {
+	    	clear: both;
+    	}
     </style>
     <script text="text/javascript" src="script.js"></script>
   </head>
   <body>
+  	<div id="wrapper">
 	  <div id="logo">Tab<span>Stats</span></div>
+	  <div id="currentTabsNum"></div>
+	  <div id="currentTabsNumDesc">currently opened tabs</div>
+	  
+	  <div class="clear">
+	<div id="wrapper">
   </body>
 </html>

@@ -8,6 +8,6 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "http://api.flickr.com/"
+    "tabs"
   ]
 }

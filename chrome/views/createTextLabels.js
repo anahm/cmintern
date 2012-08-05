@@ -48,7 +48,7 @@ function addYAxisLabels(maxTabs, height, xCoord) {
     context.textBaseline = "middle";
     context.fillStyle = textColor;
 
-	var heightGap = height / maxTabs;
+	var heightGap = (height - heightPadding) / maxTabs;
 	var yCoord = heightPadding / 2;
     for (i = maxTabs; i > 0; i--) {
 		context.fillText(i, xCoord, yCoord);

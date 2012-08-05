@@ -10,7 +10,7 @@ function init() {
 	width = canvas.width;
 	height = canvas.height;
 	
-	setColor("#0b5c8f");
+	setPointColor("#0b5c8f");
 	
 	var lingrad = context.createLinearGradient(0,0,0,height);
     lingrad.addColorStop(0, '#fff');
@@ -27,11 +27,15 @@ var shadeUnderneath = true;
 var pointFillColor = "#8ED6FF";
 var lineColor = "#0e6aa4";
 var radius = 4;
+var showPoints = true;
 
 // variables for lines
 var lineWidth = 2;
 var strokeStyle = "black";
+var showLines = true;
 
+// variables for filling
+var showFilling = true;
 
 function drawGraph(points, startTime, endTime){
 	binGap = (width - widthPadding)/(points.length - 1);
@@ -109,7 +113,7 @@ function drawFill(points) {
 		alert("we hate you - draw fill");
 }
 
-function setColor(color) {
+function setPointColor(color) {
 	pointFillColor = color;
 }
 
@@ -125,4 +129,20 @@ function noTabs() {
 	context.textBaseline = "middle";
 	context.fillStyle = textColor;
 	context.fillText("Go open some tabs. :)", width/2, height/2);
+}
+
+function setShowPoints(show) {
+	showPoints = show;
+}
+
+function setShowLines(show) {
+	showLines = show;
+}
+
+function setShowFilling(show) {
+	showFilling = show;
+}
+
+function setLineColor(color) {
+	lineColor = color;
 }

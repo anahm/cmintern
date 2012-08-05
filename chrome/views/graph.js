@@ -110,3 +110,13 @@ function setColor(color) {
 function setFillColor(color) {
 	graphFillColor = color;
 }
+
+function noTabs() {
+	var font = "11pt Calibri";
+	var textColor = "#000000";
+	context.font = font;
+	context.textAlign = "center";
+	context.textBaseline = "middle";
+	context.fillStyle = textColor;
+	context.fillText("Go open some tabs. :)", width/2, height/2);
+}

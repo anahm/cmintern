@@ -1,13 +1,11 @@
 function controller() {
 	//get list from peter
 	//get numberofBins, start and end time
-	//get height, width
 	var points = listIterator(list, numberOfBins, startTime, endTime);
-	convertToPixels(points, numberOfBins, height, width);
 	drawGraph(points);	
 }
 
-function convertToPixels (points, numberOfBins, height, width) {
+function convertToPixels (points, height) {
 	var yValues = new Array();
 	var largest = Math.max.apply(Math, points);
 	var actualPoints = new Array();

@@ -36,8 +36,10 @@ var graphFillColor = '#b9d5ec';
 var pointsSave;
 var startTimeSave;
 var endTimeSave;
+var objectsSave;
 
 function drawGraph(objects){
+	objectsSave = objects;
 	if (typeof startTimeSave == "undefined") 
 		startTimeSave = objects[0].time;
 	if (typeof endTimeSave == "undefined") {
@@ -56,7 +58,7 @@ function drawGraph(objects){
   if (showFilling) {	
 	var lingrad = context.createLinearGradient(0,0,0,height);
     lingrad.addColorStop(0, '#fff');
-    lingrad.addColorStop(1, graphFillColor);
+    lingrad.addColorStop(1, '#b9d5ec');
 	setFillColor(lingrad);
   }
 	binGap = (width - widthPadding)/(pointsSave.length - 1);
@@ -155,14 +157,22 @@ function noTabs() {
 
 function setShowPoints(show) {
 	showPoints = show;
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	drawGraph(objectsSave);
 }
 
 function setShowLines(show) {
 	showLines = show;
+		context.clearRect(0, 0, canvas.width, canvas.height);
+	drawGraph(objectsSave);
+
 }
 
 function setShowFilling(show) {
 	showFilling = show;
+		context.clearRect(0, 0, canvas.width, canvas.height);
+	drawGraph(objectsSave);
+
 }
 
 function getShowPoints() {
@@ -188,7 +198,7 @@ function setGraphFillColor(color) {
 function setStartTime(time) {
 	startTimeSave = time;
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	drawGraph(pointsSave, startTimeSave, endTimeSave);
+	drawGraph(objectsSave);
 }
 
 function getEndTime() {

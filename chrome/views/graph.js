@@ -41,7 +41,6 @@ function drawGraph(objects){
 if (typeof objects == "undefined" || objects.length == 1) {
 	noTabs();
 } else {
-	alert(objects);	
 	objectsSave = objects;
 	if (typeof startTimeSave == "undefined") 
 		startTimeSave = objects[0].time;
@@ -205,9 +204,7 @@ function setGraphFillColor(color) {
 function setStartTime(time) {
 	startTimeSave = time;
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	alert("hi");
 	controller();
-	alert("bye");
 }
 
 function getEndTime() {

@@ -11,7 +11,13 @@ $(document).ready(function() {
 	
 	$("#container").height($(document).height());
 
-	$("#lastHour").click(function () {
+	$("#allTime").click(function() {
+		// insert function...
+		$("#allTime").addClass("selected");
+		$("#allTime").siblings().removeClass();
+	});
+
+	$("#lastHour").click(function() {
 		// insert function
 		$("#lastHour").addClass("selected");
 		$("#lastHour").siblings().removeClass();
@@ -49,6 +55,7 @@ $(document).ready(function() {
 });
 
 function initPanel() {
+	$("#allTime").addClass("selected");
 	$(".displayFeatures").prop("checked", true);
 }
 

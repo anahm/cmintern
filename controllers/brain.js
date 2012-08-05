@@ -4,6 +4,14 @@
  * where all the shit happens
  */
 
+$(document).ready(function() {
+	init();
+	var practicePoints = [10, 20, 30, 55, 50];
+	controller();
+});
+
+//$('#colorpickerHolder').ColorPicker({flat: true});
+
 function controller() {
 	//get list from peter
 	//get numberofBins, start and end time
@@ -12,10 +20,11 @@ function controller() {
 	var endTime = 100;
 //	var points = listIterator(list, numberOfBins, startTime, endTime);
 	var points = new Array();
-	points.push(3);
+	points.push(0);
 	points.push(2);
+	points.push(1);
+	points.push(3);
 	points.push(10);
-	points.push(7);
 	drawGraph(points);	
 
 	addXAxisLabels(points.length, startTime);

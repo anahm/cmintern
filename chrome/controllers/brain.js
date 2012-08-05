@@ -6,11 +6,20 @@
 
 $(document).ready(function() {
 	init();
-	var practicePoints = [10, 20, 30, 55, 50];
 	controller();
 	
 	$("#container").height($(document).height());
-	
+	$("#toggleLine").click(function() {
+		alert("hi");
+		setShowLines(!getShowLines());
+	});
+	$("#togglePoints").click(function() {
+		setShowPoints(!getShowPoints());
+	});
+	$("#toggleFill").click(function() {
+		setShowFilling(!getShowFilling());
+	});
+
 	// TODO amadu - connect this up (:
 	// $('#colorpickerHolder').ColorPicker({flat: true});
 });

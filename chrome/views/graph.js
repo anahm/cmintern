@@ -144,6 +144,18 @@ function setShowFilling(show) {
 	showFilling = show;
 }
 
+function getShowPoints() {
+	return showPoints;
+}
+
+function getShowLines() {
+	return showLines;
+}
+
+function getShowFilling() {
+	return showFilling;
+}
+
 function setLineColor(color) {
 	lineColor = color;
 }

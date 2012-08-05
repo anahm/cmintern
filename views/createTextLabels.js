@@ -5,10 +5,11 @@
  */
 
 // TODO change the yAxisCoord
-var yAxisCoord = 100;
+var yAxisCoord = - (heightPadding / 2) + height;
 
 // basic variables
 var font = "11pt Calibri";
+var textColor = "#000000";
 
 /*
  * @param numBins = number of bins in chart
@@ -20,6 +21,7 @@ function addXAxisLabels(numBins, startTime, endTime) {
 		context.font = font;
         context.textAlign = "center";
         context.textBaseline = "middle";
+        context.fillColor = textColor;
         for (i = 0; i < numBins; i++) {
         	printDate((i * binGap), startTime);
         	startTime += timeBinGap;

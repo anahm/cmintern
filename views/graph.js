@@ -11,7 +11,8 @@ function init() {
 	height = canvas.height;
 	setColor("#3ED6FF");
 	setFillColor("#8ED6FF");
-	}
+}
+
 var widthPadding = 10;
 var heightPadding = 10;
 var binGap = -1;

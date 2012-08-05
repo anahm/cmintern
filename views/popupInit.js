@@ -1,8 +1,13 @@
 /*
  * Inits
  */
-getCurrentTabsNum();
-getEventsNum();
+$(document).ready(function() {
+	getCurrentTabsNum();
+	getEventsNum();
+	$("#graphButton").click(function() {
+			chrome.tabs.create({url: "views/index.html"}, function() { });
+	});
+});
 
 chrome.storage.onChanged.addListener(function(changes, namespace) {
   for (key in changes) {

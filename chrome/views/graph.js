@@ -31,7 +31,6 @@ function drawGraph(points) {
 	binGap = (width - widthPadding)/(points.length - 1);
 	var pointsLen = points.length;
 	var pixelPoints = convertToPixels(points, height, heightPadding);
-//	alert("boo");
 	drawPoint(0, pixelPoints[0]);
 	if (shadeUnderneath) {
 		drawFill(pixelPoints);
@@ -60,7 +59,7 @@ function drawLine(pointOne, pointTwo, binIndex) {
 		context.moveTo((binIndex - 1) * binGap + widthPadding/2, pointOne);
 		context.lineTo(binIndex * binGap + widthPadding/2, pointTwo);
 		context.strokeStyle = pointFillColor;
-		context.lineWidth = 5;
+		context.lineWidth = lineWidth;
 		context.stroke();
 	} else
 		alert("we hate you");

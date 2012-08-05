@@ -3,11 +3,13 @@ function writeTabEvent(numOfTabs) {
 		chrome.storage.local.set({
 			events: events
 		}, function() {
+		/*
 			e = [{time: getCurrentTime(), tabs: numOfTabs}];
 			$.post("http://awfeftw.appspot.com/post", 
 				{events: JSON.stringify(e)}, function(data) {
 					console.log(data);
 				});
+		*/
 		});
 	});
 }

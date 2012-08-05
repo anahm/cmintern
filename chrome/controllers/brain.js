@@ -22,5 +22,3 @@ function controller() {
 		drawGraph(points, startTime, endTime);
 	});
 }
-
-

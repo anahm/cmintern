@@ -39,6 +39,14 @@ function drawGraph(points, startTime, endTime){
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
 		drawPoint(i, pixelPoints[i], i);
 	}
+
+	// this is ali derping around with text. don't laugh please
+	var yAxisCoord = height - (heightPadding / 2);
+	addXAxisLabels(pointsLen, startTime, endTime, yAxisCoord);
+
+	// need to add because using top left corner of text
+	var extraXPadding = 3;
+	var xAxisCoord = widthPadding / 2 - extraXPadding;
 }
 
 // literally drawing a tiny circle

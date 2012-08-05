@@ -12,8 +12,8 @@ function init() {
 	setColor("#3ED6FF");
 	setFillColor("#8ED6FF");
 	}
-var widthPadding = 50;
-var heightPadding = 50;
+var widthPadding = 10;
+var heightPadding = 10;
 var binGap = -1;
 var shadeUnderneath = true;
 
@@ -71,7 +71,7 @@ function drawFill(points) {
 		var pointsLen = points.length;
 		for (i = 0; i < pointsLen; i++) {
 			context.lineTo(i * binGap + widthPadding/2, points[i]); 
-	    }
+	     }
 		context.lineTo(width - widthPadding/2, height - heightPadding/2);
 		context.closePath();
 		context.lineWidth = 0;

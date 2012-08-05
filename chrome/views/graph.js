@@ -55,10 +55,7 @@ if (typeof objects == "undefined" || objects.length == 1) {
 		numberofBins = Math.round((endTimeSave - startTimeSave)/60);
 	}
 	if (numberofBins > 0) {
-alert("hi");
-alert(endTimeSave - startTimeSave);
 	pointsSave = listIterator(objects, numberofBins, startTimeSave, endTimeSave);
-	alert(pointsSave.length);
 
   if (showFilling) {	
 	var lingrad = context.createLinearGradient(0,0,0,height);

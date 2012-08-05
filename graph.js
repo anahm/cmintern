@@ -8,13 +8,12 @@ function init() {
 	canvas = document.getElementById("output");
 	context = canvas.getContext("2d");
 	width = canvas.width;
-	graphWidth = width - 10;
 	height = canvas.height;
-	graphHeight = height - 10;
 	setColor("#3ED6FF");
 	setFillColor("#8ED6FF");
 	}
-
+var widthPadding = 10;
+var heightPadding = 10;
 var binGap = -1;
 var shadeUnderneath = true;
 
@@ -28,9 +27,9 @@ var strokeStyle = "black";
 
 
 function drawGraph(points) {
-	binGap = graphWidth/points.length;
+	binGap = (width - widthPadding)/points.length;
 	var pointsLen = points.length;
-	var pixelPoints = convertToPixels(points, graphHeight);
+	var pixelPoints = convertToPixels(points, height);
 	drawPoint(0, pixelPoints[0]);
 	for (i = 1; i < pointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
@@ -68,12 +67,12 @@ function drawLine(pointOne, pointTwo, binIndex) {
 function drawFill(points) {
 	if (binGap > 0) {
 		context.beginPath();
-		context.moveTo(0, graphHeight);
+		context.moveTo(0, height - heightPadding/2);
 		var pointsLen = points.length;
 		for (i = 0; i < pointsLen; i++) {
 			context.lineTo(i * binGap, points[i]); 
 	    }
-		context.lineTo(graphWidth, graphHeight);
+		context.lineTo(width - widthPadding/2, height - heightPadding/2);
 		context.closePath();
 		context.lineWidth = 0;
 		context.fillStyle = graphFillColor;

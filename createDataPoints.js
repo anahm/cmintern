@@ -13,7 +13,7 @@ function controller() {
 	drawGraph(points);	
 }
 
-function convertToPixels (points, height) {
+function convertToPixels (points, height, heightPadding) {
 	var yValues = new Array();
 	var largest = Math.max.apply(Math, points);
 	var actualPoints = new Array();

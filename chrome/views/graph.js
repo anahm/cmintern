@@ -45,7 +45,9 @@ function drawGraph(points) {
 	var yAxisCoord = height - (heightPadding / 2);
 	addXAxisLabels(pointsLen, startTime, endTime, yAxisCoord);
 
-	var xAxisCoord = widthPadding / 2;
+	// need to add because using top left corner of text
+	var extraXPadding = 3;
+	var xAxisCoord = widthPadding / 2 - extraXPadding;
 }
 
 // literally drawing a tiny circle

@@ -10,12 +10,7 @@ function init() {
 	width = canvas.width;
 	height = canvas.height;
 	
-	setPointColor("#0b5c8f");
-	
-	var lingrad = context.createLinearGradient(0,0,0,height);
-    lingrad.addColorStop(0, '#fff');
-    lingrad.addColorStop(1, '#b9d5ec');
-	setFillColor(lingrad);
+
 }
 
 var widthPadding = 100;
@@ -24,7 +19,7 @@ var binGap = -1;
 var shadeUnderneath = true;
 
 // variables for points
-var pointFillColor = "#8ED6FF";
+var pointFillColor = "#0b5c8f";
 var lineColor = "#0e6aa4";
 var radius = 4;
 var showPoints = true;
@@ -36,8 +31,15 @@ var showLines = true;
 
 // variables for filling
 var showFilling = true;
+var graphFillColor = '#b9d5ec';
 
 function drawGraph(points, startTime, endTime){
+  if (showFilling) {	
+	var lingrad = context.createLinearGradient(0,0,0,height);
+    lingrad.addColorStop(0, '#fff');
+    lingrad.addColorStop(1, graphFillColor);
+	setFillColor(lingrad);
+  }
 	binGap = (width - widthPadding)/(points.length - 1);
 
 	var pointsLen = points.length;
@@ -144,4 +146,8 @@ function setShowFilling(show) {
 
 function setLineColor(color) {
 	lineColor = color;
+}
+
+function setGraphFillColor(color) {
+	graphFillColor = color;
 }

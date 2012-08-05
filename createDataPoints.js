@@ -1,3 +1,22 @@
+function controller() {
+	//get list from peter
+	//get numberofBins, start and end time
+	//get height, width
+	var points = listIterator(list, numberOfBins, startTime, endTime);
+	convertToPixels(points, numberOfBins, height, width);
+	
+}
+
+function convertToPixels (points, numberOfBins, height, width) {
+	var yValues = new Array();
+	var largest = Math.max.apply(Math, points);
+	var actualPoints = new Array();
+	for (var i = 0; i < points.size; i++) {
+		var point = points[i];
+		yValues.push(height*point/largest);
+	}
+	return yValues;
+}
 
 function listIterator(list, numberOfBins, startTime, endTime) {
 	var binIndex = 0;
@@ -17,5 +36,6 @@ function listIterator(list, numberOfBins, startTime, endTime) {
 			}
 		}
 	}
+	return points;
 }
 

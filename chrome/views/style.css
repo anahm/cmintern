@@ -1,3 +1,9 @@
+/*
+ * style.css
+ *
+ * css stylesheet for the general html page
+ */
+
 body {
 	background: url('cubes.png');
 	text-align: center;
@@ -6,6 +12,7 @@ body {
 	padding: 0;
 	margin: 0;
 }
+
 #container {
 	width: 80%;
 	margin: 0 auto;
@@ -15,6 +22,7 @@ body {
 	border-width: 0px 1px;
 	box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
 }
+
 h1 {
 	font-weight: bold;
 	font-size: 35px;
@@ -26,6 +34,7 @@ h1 {
 	border-bottom: 1px solid #fff;
 	text-shadow: 0px 0px 5px rgba(0,0,0,.9);
 }
+
 h3 {
 	font-weight: normal;
 	color: #3f81c5;
@@ -35,12 +44,14 @@ h3 {
 	text-align: right;
 	text-transform: uppercase;
 }
+
 header {
 	padding: 30px 20px 10px;
 	margin: 0px -30px 40px;
 	background: -webkit-linear-gradient(#308713 0%, #1b5607 100%);
 	box-shadow: 0px 0px 20px rgba(0,0,0,0.5);	
 }
+
 img {
 	padding: 10px;
 	background: #fff;
@@ -51,6 +62,7 @@ img {
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
+
 p {
 	text-align: left;
 	font-weight: normal;
@@ -58,18 +70,28 @@ p {
 	color: #bbb;
 	padding: 0px 10px;
 }
+
 p#copyright{
 	margin-top: 50px;
 }
+
 a {
-	color: #3f81c5;
+	/* color: #3f81c5; */
+	color: #000000;
 	-webkit-transition: 0.3s opacity;
 	-moz-transition: 0.3s opacity;
 	text-decoration: none;
 }
+
 a:hover {
 	opacity: 0.5;
 }
+
+.selected {
+	font-weight: bold;
+	color: #1B5607;
+}
+
 canvas#output {
 	float: left;
 	width: 75%;	
@@ -80,12 +102,13 @@ canvas#output {
 	box-sizing: border-box;
 	box-shadoW: 0px 0px 15px rgba(0,0,0,0.3);
 }
+
 div#options{
 	width: 23%;
 	float: right;
 	box-sizing: border-box;
-
 }
+
 div#options h3 {
 	color: #333;
 	font-weight: bold;
@@ -93,11 +116,15 @@ div#options h3 {
 	text-align: left;
 	margin-bottom: 0px;
 }
+
 div#options p{
 	margin: 0;
 	font-size: 14px;
 	line-height: 20px;
 }
+
 .clear {
 	clear: both;
 }
+
+

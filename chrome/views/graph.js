@@ -38,6 +38,10 @@ var endTimeSave;
 var objectsSave;
 
 function drawGraph(objects){
+if (typeof objects == "undefined" || objects.length == 1) {
+	noTabs();
+} else {
+	
 	objectsSave = objects;
 	if (typeof startTimeSave == "undefined") 
 		startTimeSave = objects[0].time;
@@ -77,6 +81,7 @@ function drawGraph(objects){
 		if (showPoints) drawPoint(i - 1, pixelPoints[i - 1]);
 	}
 	if (showPoints) drawPoint(pointsLen - 1, pixelPoints[pointsLen - 1]);
+}
 }
 
 

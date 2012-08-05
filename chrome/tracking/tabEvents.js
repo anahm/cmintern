@@ -13,7 +13,7 @@ chrome.tabs.onCreated.addListener(function(tab) {
 		writeTabEvent(true);
 	}
 */
-	getNumOfTab(function(numOfTabs) {
+	getNumOfTabs(function(numOfTabs) {
 		writeTabEvent(numOfTabs);
 	});
 });
@@ -23,7 +23,7 @@ chrome.tabs.onRemoved.addListener(function(tab) {
 		writeTabEvent(false);
 	}
 */
-	getNumOfTab(function(numOfTabs) {
+	getNumOfTabs(function(numOfTabs) {
 		writeTabEvent(numOfTabs);
 	});
 });

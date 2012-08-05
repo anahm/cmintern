@@ -12,8 +12,8 @@ function init() {
 	setColor("#3ED6FF");
 	setFillColor("#8ED6FF");
 	}
-var widthPadding = 10;
-var heightPadding = 10;
+var widthPadding = 50;
+var heightPadding = 50;
 var binGap = -1;
 var shadeUnderneath = true;
 
@@ -27,7 +27,7 @@ var strokeStyle = "black";
 
 
 function drawGraph(points) {
-	binGap = (width - widthPadding)/points.length;
+	binGap = (width - widthPadding)/(points.length - 1);
 	var pointsLen = points.length;
 	var pixelPoints = convertToPixels(points, height, heightPadding);
 	drawPoint(0, pixelPoints[0]);
@@ -45,7 +45,7 @@ function drawPoint(binIndex, singlePoint) {
 	if (binGap > 0) {
 		context.fillStyle = pointFillColor;
 		context.beginPath();
-		context.arc(binIndex * binGap, singlePoint, radius, 0, 2*Math.PI, true)
+		context.arc(binIndex * binGap + widthPadding/2, singlePoint, radius, 0, 2*Math.PI, true)
 		context.closePath();
 		context.fill();
 	} else
@@ -55,8 +55,8 @@ function drawPoint(binIndex, singlePoint) {
 function drawLine(pointOne, pointTwo, binIndex) {
 	if (binGap > 0) {
 		context.beginPath();
-		context.moveTo((binIndex - 1) * binGap , pointOne);
-		context.lineTo(binIndex * binGap , pointTwo);
+		context.moveTo((binIndex - 1) * binGap + widthPadding/2, pointOne);
+		context.lineTo(binIndex * binGap + widthPadding/2, pointTwo);
 		context.lineWidth = lineWidth;
 		context.strokeStyle = pointFillColor;
 		context.stroke();
@@ -67,10 +67,10 @@ function drawLine(pointOne, pointTwo, binIndex) {
 function drawFill(points) {
 	if (binGap > 0) {
 		context.beginPath();
-		context.moveTo(0, height - heightPadding/2);
+		context.moveTo(widthPadding/2, height - heightPadding/2);
 		var pointsLen = points.length;
 		for (i = 0; i < pointsLen; i++) {
-			context.lineTo(i * binGap, points[i]); 
+			context.lineTo(i * binGap + widthPadding/2, points[i]); 
 	    }
 		context.lineTo(width - widthPadding/2, height - heightPadding/2);
 		context.closePath();

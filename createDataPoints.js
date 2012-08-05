@@ -6,7 +6,6 @@ function controller() {
 	var endTime = 100;
 //	var points = listIterator(list, numberOfBins, startTime, endTime);
 	var points = new Array();
-	alert("Hi");
 	points.push(3);
 	points.push(2);
 	points.push(10);
@@ -16,7 +15,6 @@ function controller() {
 
 function convertToPixels (points, height) {
 	var yValues = new Array();
-	alert("convert");
 	var largest = Math.max.apply(Math, points);
 	var actualPoints = new Array();
 	for (i = 0; i < points.length; i++) {

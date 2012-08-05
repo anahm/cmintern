@@ -9,11 +9,12 @@ function init() {
 	context = canvas.getContext("2d");
 	width = canvas.width;
 	height = canvas.height;
-	setColor("#8ED6FF");
+	setColor("#3ED6FF");
+	setFillColor("#8ED6FF");
 	}
 
 var binGap = -1;
-var shadeUnderneath = false;
+var shadeUnderneath = true;
 
 // variables for points
 var pointFillColor = "#8ED6FF";
@@ -32,9 +33,6 @@ function drawGraph(points) {
 	for (i = 1; i < pointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
 		drawPoint(i, pixelPoints[i], i);
-		if (shadeUnderneath) {
-			drawFill(pixelPoints[i - 1], pixelPoints[i], i);
-		}
 	}
 	if (shadeUnderneath) {
 		drawFill(pixelPoints);
@@ -72,11 +70,11 @@ function drawFill(points) {
 		var pointsLen = points.length;
 		for (i = 0; i < pointsLen; i++) {
 			context.lineTo(i * binGap, points[i]); 
-		}
+	    }
 		context.lineTo(width, height);
 		context.closePath();
 		context.lineWidth = 0;
-		context.fillStyle = pointFillColor;
+		context.fillStyle = graphFillColor;
 		context.fill();
 		context.stroke();
 	} else
@@ -85,4 +83,8 @@ function drawFill(points) {
 
 function setColor(color) {
 	pointFillColor = color;
+}
+
+function setFillColor(color) {
+	graphFillColor = color;
 }

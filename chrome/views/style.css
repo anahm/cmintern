@@ -60,3 +60,6 @@ a {
 a:hover {
 	opacity: 0.5;
 }
+canvas#output {
+	width: 100%;	
+}

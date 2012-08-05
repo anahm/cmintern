@@ -15,9 +15,14 @@ $(document).ready(function() {
 
 function controller() {
 	getTabEvents(function(objects) {
-		var numberofBins = 24;
 		var startTime = objects[0].time;
 		var endTime = objects[objects.length-1].time;
+		var numberofBins = 0;
+		if ((endTime - startTime)/60 > 100) {
+			numberofBins = 100;
+		} else {
+			numberofBins = Math.round((endTime - startTime)/60);
+		}
 		var points = listIterator(objects, numberofBins, startTime, endTime);
 		drawGraph(points, startTime, endTime);
 	});

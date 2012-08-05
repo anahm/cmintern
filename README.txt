@@ -3,6 +3,8 @@ tabstats
 by Ali Nahm, Peter Zhang, Junjun Chen, and Amadu Durham
 8.4.12 - 8.5.12 - tbd..
 
+you can download it at the chrome web store!
+(https://chrome.google.com/webstore/detail/ofefchjafojmiaffflndhpcnblbedbci)
 ===============================================
 
 tabstats is a basic chrome extension that tracks the number

@@ -49,11 +49,10 @@ function drawGraph(points, startTime, endTime){
 	drawExtraLabels(points, startTime, endTime);
 
 	for (i = 1; i < pointsLen; i++) {
-		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
-		drawPoint(i - 1, pixelPoints[i - 1]);
+		if (showLines) drawLine(pixelPoints[i - 1], pixelPoints[i], i);
+		if (showPoints) drawPoint(i - 1, pixelPoints[i - 1]);
 	}
-
-	drawPoint(pointsLen - 1, pixelPoints[pointsLen - 1]);
+	if (showPoints) drawPoint(pointsLen - 1, pixelPoints[pointsLen - 1]);
 }
 
 

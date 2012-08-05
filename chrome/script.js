@@ -4,3 +4,7 @@ function getCurrentTabsNum() {
 		document.getElementById("currentTabsNum").innerHTML = tabs.length;
 	});
 }
+
+chrome.tabs.onCreated.addListener(function(tab) {
+	writeTabEvent(true);
+});

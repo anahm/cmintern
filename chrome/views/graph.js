@@ -10,7 +10,7 @@ function init() {
 	width = canvas.width;
 	height = canvas.height;
 	
-	setColor("#3aa5ff");
+	setColor("#0b5c8f");
 	
 	var lingrad = context.createLinearGradient(0,0,0,height);
     lingrad.addColorStop(0, '#fff');
@@ -25,7 +25,7 @@ var shadeUnderneath = true;
 
 // variables for points
 var pointFillColor = "#8ED6FF";
-var lineColor = "#b9d5ec";
+var lineColor = "#0e6aa4";
 var radius = 4;
 
 // variables for lines
@@ -118,4 +118,14 @@ function setColor(color) {
 
 function setFillColor(color) {
 	graphFillColor = color;
+}
+
+function noTabs() {
+	var font = "11pt Calibri";
+	var textColor = "#000000";
+	context.font = font;
+	context.textAlign = "center";
+	context.textBaseline = "middle";
+	context.fillStyle = textColor;
+	context.fillText("Go open some tabs. :)", width/2, height/2);
 }

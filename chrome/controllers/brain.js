@@ -17,6 +17,9 @@ $(document).ready(function() {
 
 function controller() {
 	getTabEvents(function(objects) {
+	  if (typeof objects == "undefined") {
+		noTabs();
+	  } else {
 		var startTime = objects[0].time;
 		var endTime = objects[objects.length-1].time;
 		var numberofBins = 0;
@@ -27,5 +30,6 @@ function controller() {
 		}
 		var points = listIterator(objects, numberofBins, startTime, endTime);
 		drawGraph(points, startTime, endTime);
+	  }
 	});
 }

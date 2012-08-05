@@ -24,11 +24,10 @@ div#header {
     padding-bottom:10px;  
 }
 
-div#title a{
-    padding-bottom:10px;
-    font-weight:bold;
-    font-size:2.3em;
-	color: #345345;
-	text-decoration:none;
+div#title {
+    color: #14467a;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 3em;
 }
 

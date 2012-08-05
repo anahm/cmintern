@@ -41,19 +41,22 @@ function drawGraph(objects){
 if (typeof objects == "undefined" || objects.length == 1) {
 	noTabs();
 } else {
-	
+	alert(objects);	
 	objectsSave = objects;
 	if (typeof startTimeSave == "undefined") 
 		startTimeSave = objects[0].time;
 	if (typeof endTimeSave == "undefined") {
 		var objectsLength = objects.length - 1;
 		endTimeSave = objects[objectsLength].time;
-		}
+	}
 	var numberofBins = 0;
 	if ((endTimeSave - startTimeSave)/60 > 100) {
 		numberofBins = 100;
 	} else {
 		numberofBins = Math.round((endTimeSave - startTimeSave)/60);
+	}
+	if (numberofBins == 0) {
+		numberofBins = 1;
 	}
 	pointsSave = listIterator(objects, numberofBins, startTimeSave, endTimeSave);
 
@@ -202,7 +205,9 @@ function setGraphFillColor(color) {
 function setStartTime(time) {
 	startTimeSave = time;
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	drawGraph(objectsSave);
+	alert("hi");
+	controller();
+	alert("bye");
 }
 
 function getEndTime() {

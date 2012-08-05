@@ -17,7 +17,7 @@ $(document).ready(function() {
 	});
 
 	$("#lastHour").click(function() {
-		setStartTime(getEndTime() - 60);
+		setStartTime(getEndTime() - 1);
 		$("#lastHour").addClass("selected");
 		$("#lastHour").siblings().removeClass();
 	});

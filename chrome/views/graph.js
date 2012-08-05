@@ -35,19 +35,28 @@ var strokeStyle = "black";
 
 function drawGraph(points, startTime, endTime){
 	binGap = (width - widthPadding)/(points.length - 1);
+
 	var pointsLen = points.length;
 	var pixelPoints = convertToPixels(points, height, heightPadding);
 
 	if (shadeUnderneath) {
 		drawFill(pixelPoints);
 	}
+	var drawLabels = true;
+	if (drawLabels) {
+		drawExtraLabels(points, startTime, endTime);
+	}
+
 	for (i = 1; i < pointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
 		drawPoint(i - 1, pixelPoints[i - 1]);
 	}
 
 	drawPoint(pointsLen - 1, pixelPoints[pointsLen - 1]);
+}
 
+
+function drawExtraLabels(points, startTime, endTime) {
 	// this is ali derping around with text. don't laugh please
 	var extraYPadding = 13;
 	var yAxisCoord = height - (heightPadding / 2) + extraYPadding;
@@ -69,19 +78,19 @@ function drawPoint(binIndex, singlePoint) {
 		context.closePath();
 		context.fill();
 	} else
-		alert("we hate you");
+		alert("we hate you - draw point");
 }
 
 function drawLine(pointOne, pointTwo, binIndex) {
 	if (binGap > 0) {
-		context.beginPath();i
+		context.beginPath();
 		context.moveTo((binIndex - 1) * binGap + widthPadding/2, pointOne);
 		context.lineTo(binIndex * binGap + widthPadding/2, pointTwo);
 		context.strokeStyle = lineColor;
 		context.lineWidth = lineWidth;
 		context.stroke();
 	} else
-		alert("we hate you");
+		alert("we hate you - draw line");
 }
 
 function drawFill(points) {
@@ -100,7 +109,7 @@ function drawFill(points) {
 		context.strokeStyle = graphFillColor;
 		context.stroke();
 	} else
-		alert("we hate you");
+		alert("we hate you - draw fill");
 }
 
 function setColor(color) {

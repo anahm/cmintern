@@ -6,13 +6,15 @@
 
 // basic variables
 var font = "11pt Calibri";
-var textColor = "#000000";
+var textColor = "#333";
 var maxXShown = 20;
 var maxYShown = 10;
 
+var gridLineColor = "#BBBBBB";
+
 // TODO add vertical and horiz lines
-var showVerticalLines = false;
-var showHorizLines = false;
+var showVerticalLines = true;
+var showHorizLines = true;
 
 /*
  * @param numBins = number of bins in chart
@@ -29,13 +31,17 @@ function addXAxisLabels(numBins, startTime, endTime, yCoord) {
 	if (binGap > 0) {
 		var frequency = parseInt(numBins / maxYShown);
         var wPadding = widthPadding / 2;
+        var hPadding = heightPadding / 2;
 
         for (i = 0; i < numBins; i++) {
-        	if (numBins < maxXShown || i % frequency == 0)
-        		printDate((i * binGap) + wPadding, startTime, yCoord);
+        	var xCoord = (i * binGap) + wPadding;
+        	if (numBins < maxXShown || i % frequency == 0) {
+        		printDate(xCoord, startTime, yCoord);
+        		if (showVerticalLines)
+					drawGridLine(xCoord, hPadding - 13,
+							xCoord, height - hPadding);
+			}
         	startTime += timeBinGap;
-			if (showHorizLines)
-				drawHorizLines();
         }
     } else
     	alert("we hate you.");
@@ -64,19 +70,26 @@ function addYAxisLabels(maxTabs, height, xCoord) {
 	var frequency = parseInt(maxTabs / maxYShown);
 	var heightGap = (height - heightPadding) / maxTabs;
 	var yCoord = heightPadding / 2;
+	var wPadding = widthPadding / 2;
+
     for (i = maxTabs; i > 0; i--) {
-    	if (maxTabs < maxYShown || i % frequency == 0)
+    	if (maxTabs < maxYShown || i % frequency == 0) {
 			context.fillText(i, xCoord, yCoord);
-		if (showVerticalLines)
-			drawVerticalLines();
+			if (showHorizLines)
+				drawGridLine(wPadding, yCoord,
+						width - wPadding, yCoord);
+		}
 		yCoord += heightGap;
 	}
 }
 
-function drawVerticalLines() {
-}
-
-function drawHorizLines() {
+function drawGridLine(startX, startY, endX, endY) {
+	context.beginPath();
+	context.moveTo(startX, startY);
+	context.lineTo(endX, endY);
+	context.strokeStyle = gridLineColor;
+	context.lineWidth = lineWidth;
+	context.stroke();
 }
 
 function setMaxXShown(newMax) {
@@ -87,3 +100,10 @@ function setMaxYShown(newMax) {
 	maxYShown = newMax;
 }
 
+function setShowVerticalLines(vLines) {
+	showVerticalLines = vLines;
+}
+
+function setShowHorizLines(hLines) {
+	showHorizLines = hLines;
+}

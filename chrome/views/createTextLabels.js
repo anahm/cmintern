@@ -104,13 +104,13 @@ function setMaxYShown(newMax) {
 function setShowVerticalLines(vLines) {
 	showVerticalLines = vLines;
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	drawGraph(pointsSave, startTimeSave, endTimeSave);
+	drawGraph(objectsSave);
 }
 
 function setShowHorizLines(hLines) {
 	showHorizLines = hLines;
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	drawGraph(pointsSave, startTimeSave, endTimeSave);
+	drawGraph(objectsSave);
 }
 
 function getShowVerticalLines() {

@@ -16,7 +16,6 @@ function init() {
 var widthPadding = 100;
 var heightPadding = 100;
 var binGap = -1;
-var shadeUnderneath = true;
 
 // variables for points
 var pointFillColor = "#0b5c8f";
@@ -66,7 +65,7 @@ function drawGraph(objects){
 	var pointsLen = pointsSave.length;
 	var pixelPoints = convertToPixels(pointsSave, height, heightPadding);
 
-	if (shadeUnderneath) {
+	if (showFilling) {
 		drawFill(pixelPoints);
 	}
 	drawExtraLabels(pointsSave, startTimeSave, endTimeSave);

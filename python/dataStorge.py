@@ -1,6 +1,7 @@
 import datetime
 import cgitb
 import string
+import json
 from google.appengine.ext import db
 from google.appengine.api import users
 
@@ -9,11 +10,16 @@ class CreatedTabs(db.Model):
     created = db.BooleanProperty()
 
 class TabExtensionHandler(webapp2.RequestHandler):
-    def post(self, post):
-        while find in post:
-            stamp = post.find("time")
-            CT = CreatedTabs(time = post[stamp+4:stamp+15])
-            CT.put()
-            del post[stamp:stamp+4]
+    def post(self):
+    	events = json.loads(self.request.get("events"))
+        for event in events:
+            self.response.out.write(event.time + " " + event.tabs)
         
+app = webapp2.WSGIApplication([('/post', TabExtensionHandler)],
+                              debug=True)
+                              
+def main():
+	run_wsgi_app(application)
 
+if __name__ == "__main__":
+	main()

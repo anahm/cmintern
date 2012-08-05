@@ -4,13 +4,13 @@
   "manifest_version": 2,
   "description": "The first extension that I made.",
   "browser_action": {
-    "default_icon": "assets/icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "views/icon.png",
+    "default_popup": "views/popup.html"
   },
   "permissions": [
     "tabs", "history", "storage"
   ],
   "background": {
-    "scripts": ["utils.js", "tabEvents.js"]
+    "scripts": ["chrome/utils.js", "chrome/tabEvents.js"]
   }
 }

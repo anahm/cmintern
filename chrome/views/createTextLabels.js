@@ -39,7 +39,7 @@ function addXAxisLabels(numBins, startTime, endTime, yCoord) {
         		printDate(xCoord, startTime, yCoord);
         		if (showVerticalLines)
 					drawGridLine(xCoord, hPadding - 13,
-							xCoord, height - hPadding);
+							xCoord, height - hPadding, gridLineColor);
 			}
         	startTime += timeBinGap;
         }
@@ -78,17 +78,17 @@ function addYAxisLabels(maxTabs, height, xCoord) {
 			context.fillText(i, xCoord, yCoord);
 			if (showHorizLines)
 				drawGridLine(wPadding, yCoord,
-						width - wPadding, yCoord);
+						width - wPadding, yCoord, gridLineColor);
 		}
 		yCoord += heightGap;
 	}
 }
 
-function drawGridLine(startX, startY, endX, endY) {
+function drawGridLine(startX, startY, endX, endY, color) {
 	context.beginPath();
 	context.moveTo(startX, startY);
 	context.lineTo(endX, endY);
-	context.strokeStyle = gridLineColor;
+	context.strokeStyle = color;
 	context.lineWidth = lineWidth;
 	context.stroke();
 }

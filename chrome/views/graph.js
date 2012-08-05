@@ -55,6 +55,8 @@ function drawGraph(points, startTime, endTime){
 		drawFill(pixelPoints);
 	}
 	drawExtraLabels(points, startTime, endTime);
+    drawGridLine(widthPadding/2, height - heightPadding/2, width - widthPadding/2, height - heightPadding/2, "#000");
+    drawGridLine(widthPadding/2, heightPadding/2 - 13, widthPadding/2, height - heightPadding/2, "#000");  
 
 	for (i = 1; i < pointsLen; i++) {
 		if (showLines) drawLine(pixelPoints[i - 1], pixelPoints[i], i);

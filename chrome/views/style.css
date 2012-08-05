@@ -92,6 +92,10 @@ a:hover {
 	color: #1B5607;
 }
 
+.checkbox {
+	width: 100px;
+}
+
 canvas#output {
 	float: left;
 	width: 75%;	

@@ -1,5 +1,5 @@
-function writeTabEvent(created) {
-	getTabEventsToWrite({time: getCurrentTime(), created: created}, function(events) {
+function writeTabEvent(numOfTabs) {
+	getTabEventsToWrite({time: getCurrentTime(), tabs: numOfTabs}, function(events) {
 		chrome.storage.local.set({
 			events: events
 		}, function() {
@@ -30,4 +30,10 @@ function getCurrentTime() {
 	// returns unix timestamp in seconds.
 	var d = new Date();
 	return parseInt(d.getTime() / 1000);
+}
+
+function getNumOfTabs(callback) {
+	chrome.tabs.query({} /* get ALL the tabs! */, function(tabs) {
+		callback(tabs.length);
+	});
 }

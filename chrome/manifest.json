@@ -11,6 +11,6 @@
     "tabs", "history", "storage"
   ],
   "background": {
-    "scripts": ["chrome/utils.js", "chrome/tabEvents.js"]
+    "scripts": ["tracking/utils.js", "tracking/tabEvents.js"]
   }
 }

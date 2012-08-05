@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 function controller() {
 	getTabEvents(function(objects) {
-		var numberofBins = 4;
+		var numberofBins = 24;
 		var startTime = objects[0].time;
 		var endTime = objects[objects.length-1].time;
 		var points = listIterator(objects, numberofBins, startTime, endTime);

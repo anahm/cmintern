@@ -28,8 +28,7 @@ function listIterator(list, numberOfBins, startTime, endTime) {
 		if (list[timeObject].time > endTime) break;
 		if (list[timeObject].time >= startTime) {
 			if (list[timeObject].time <= startTime + (binIndex * timeBinGap)){
-			    if (list[timeObject].created) points[binIndex]++;
-				else points[binIndex]--;
+			    points[binIndex] = list[timeObject].tabs;
 				timeObject++;
 			} else {
 				binIndex++;

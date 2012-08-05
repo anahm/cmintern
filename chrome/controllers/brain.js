@@ -20,13 +20,9 @@ $(document).ready(function() {
 	});
 	$("#toggleHorizontalGrid").click(function() {
 		setShowHorizLines(!getShowHorizLines());
-		$("#toggleHorizontalGrid").addClass("selected");
-		$("#toggleHorizontalGrid").siblings().removeClass();
 	});
 	$("#toggleVerticalGrid").click(function() {
 		setShowVerticalLines(!getShowVerticalLines());
-		$("#toggleVerticalGrid").addClass("selected");
-		$("#toggleVerticalGrid").siblings().removeClass();
 	});
 	// TODO amadu - connect this up (:
 	// $('#colorpickerHolder').ColorPicker({flat: true});

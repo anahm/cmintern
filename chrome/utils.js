@@ -6,6 +6,7 @@ function getCurrentTabsNum() {
 		document.getElementById("currentTabsNum").innerHTML = tabs.length;
 	});
 }
+
 function getEventsNum() {
 	getTabEvents(function(events) {
 		document.getElementById("eventsNum").innerHTML = events.length;
@@ -24,11 +25,9 @@ function writeTabEvent(created) {
 function getTabEventsToWrite(eventToWrite, callback) {
 	getTabEvents(function(events) {
 		if(events == null || events == undefined) {
-			console.log("Hello");
 			events = [eventToWrite];
 			callback(events);
 		} else {
-			console.log("Bye");
 			events[events.length] = eventToWrite;
 			console.log(events);
 			callback(events);
@@ -38,7 +37,6 @@ function getTabEventsToWrite(eventToWrite, callback) {
 
 function getTabEvents(callback) {
 	chrome.storage.local.get("events", function(items) {
-		console.log(items.events);
 		callback(items.events);
 	});
 }

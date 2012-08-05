@@ -14,10 +14,11 @@ $(document).ready(function() {
 });
 
 function controller() {
-	getTabEvents(function(points) {
-		var numberofBins = 0;
-		var startTime = points[0].time;
-		var endTime = points[points.length-1].time;
+	getTabEvents(function(objects) {
+		var numberofBins = 4;
+		var startTime = objects[0].time;
+		var endTime = objects[objects.length-1].time;
+		var points = listIterator(objects, numberofBins, startTime, endTime);
 		drawGraph(points);
 	});
 }

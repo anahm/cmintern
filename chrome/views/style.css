@@ -1,0 +1,62 @@
+body {
+	background: url('cubes.png');
+	text-align: center;
+	font-family: "Cabin", sans-serif;
+	text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+#container {
+	width: 80%;
+	margin: 0 auto;
+	padding: 50px 30px;
+	background: rgba(255,255,255,0.8);
+	border: 1px solid #ccc;
+	border-width: 0px 1px;
+	box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
+}
+h1 {
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 32px;
+	color: #14467a;
+	padding: 0;
+	margin: 3px 0 10px;
+	text-align: right;
+	border-bottom: 1px solid #3f81c5;
+}
+h3 {
+	font-weight: normal;
+	color: #3f81c5;
+	padding: 0;
+	margin: 0;
+	line-height: normal;
+	text-align: right;
+	text-transform: uppercase;
+}
+img {
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+p {
+	text-align: left;
+	font-weight: normal;
+	font-size: 15px;
+	color: #555;
+	padding: 0px 20px;
+}
+a {
+	color: #990000;
+	-webkit-transition: 0.3s opacity;
+	-moz-transition: 0.3s opacity;
+}
+a:hover {
+	opacity: 0.5;
+}

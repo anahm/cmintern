@@ -37,10 +37,22 @@
     	.clear {
 	    	clear: both;
     	}
+    	button#graphButton {
+	    	background: -webkit-linear-gradient(#5da1ef 0%, #3152a5 100%);
+	    	padding: 5px;
+	    	border: 1px solid #084198;
+	    	color: white;
+	    	text-align: center;
+	    	font-weight: bold;
+	    	width: 100%;
+	    	border-radius: 5px;
+	    	cursor: pointer;
+    	}
     </style>
-    <script text="text/javascript" src="../chrome/utils.js"></script>
-    <script text="text/javascript" src="popupUtils.js"></script>
-    <script text="text/javascript" src="popupInit.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="../chrome/utils.js"></script>
+    <script type="text/javascript" src="popupUtils.js"></script>
+    <script type="text/javascript" src="popupInit.js"></script>
   </head>
   <body>
   	<div id="wrapper">
@@ -50,7 +62,7 @@
 	  <div id="eventsNum"></div>
 	  <div class="desc">tab events today</div>
 	  
-	  <a href="#" id="testlink">test</a>
+	  <button id="graphButton">Graph</button>
 	  <div class="clear">
 	<div id="wrapper">
   </body>

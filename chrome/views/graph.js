@@ -9,8 +9,13 @@ function init() {
 	context = canvas.getContext("2d");
 	width = canvas.width;
 	height = canvas.height;
-	setColor("#3ED6FF");
-	setFillColor("#8ED6FF");
+	
+	setColor("#3aa5ff");
+	
+	var lingrad = context.createLinearGradient(0,0,0,height);
+    lingrad.addColorStop(0, '#fff');
+    lingrad.addColorStop(1, '#b9d5ec');
+	setFillColor(lingrad);
 }
 
 var widthPadding = 100;
@@ -20,6 +25,7 @@ var shadeUnderneath = true;
 
 // variables for points
 var pointFillColor = "#8ED6FF";
+var lineColor = "#b9d5ec";
 var radius = 4;
 
 // variables for lines
@@ -31,19 +37,17 @@ function drawGraph(points, startTime, endTime){
 	binGap = (width - widthPadding)/(points.length - 1);
 	var pointsLen = points.length;
 	var pixelPoints = convertToPixels(points, height, heightPadding);
-	drawPoint(0, pixelPoints[0]);
+
 	if (shadeUnderneath) {
 		drawFill(pixelPoints);
 	}
 	for (i = 1; i < pointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
-		drawPoint(i, pixelPoints[i], i);
+		drawPoint(i - 1, pixelPoints[i - 1]);
 	}
-	
-	drawLabels(points, startTime, endTime);
-}
 
-function drawLabels(points, startTime, endTime) {
+	drawPoint(pointsLen - 1, pixelPoints[pointsLen - 1]);
+
 	// this is ali derping around with text. don't laugh please
 	var extraYPadding = 13;
 	var yAxisCoord = height - (heightPadding / 2) + extraYPadding;
@@ -73,7 +77,7 @@ function drawLine(pointOne, pointTwo, binIndex) {
 		context.beginPath();i
 		context.moveTo((binIndex - 1) * binGap + widthPadding/2, pointOne);
 		context.lineTo(binIndex * binGap + widthPadding/2, pointTwo);
-		context.strokeStyle = pointFillColor;
+		context.strokeStyle = lineColor;
 		context.lineWidth = lineWidth;
 		context.stroke();
 	} else

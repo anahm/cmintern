@@ -1,24 +1,4 @@
 /*
- * Inits
- */
-getCurrentTabsNum();
-getEventsNum();
-
-//document.getElementById('testlink').onclick = writeTabEvent(true);
-chrome.storage.onChanged.addListener(function(changes, namespace) {
-  for (key in changes) {
-    var storageChange = changes[key];
-    console.log('Storage key "%s" in namespace "%s" changed. ' +
-                'Old value was "%s", new value is "%s".',
-                key,
-                namespace,
-                storageChange.oldValue,
-                storageChange.newValue);
-  }
-});
-
-
-/*
  * Helper methods
  */
 function getCurrentTabsNum() {
@@ -34,7 +14,7 @@ function getEventsNum() {
 
 function writeTabEvent(created) {
 	getTabEventsToWrite({time: getCurrentTime(), created: created}, function(events) {
-		chrome.storage.sync.set({
+		chrome.storage.local.set({
 			events: events
 		}, function() {
 		});
@@ -57,7 +37,7 @@ function getTabEventsToWrite(eventToWrite, callback) {
 }
 
 function getTabEvents(callback) {
-	chrome.storage.sync.get("events", function(items) {
+	chrome.storage.local.get("events", function(items) {
 		console.log(items.events);
 		callback(items.events);
 	});
@@ -68,6 +48,3 @@ function getCurrentTime() {
 	var d = new Date();
 	return parseInt(d.getTime() / 1000);
 }
-chrome.tabs.onCreated.addListener(function(tab) {
-	writeTabEvent(true);
-});

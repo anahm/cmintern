@@ -8,9 +8,10 @@ $(document).ready(function() {
 	init();
 	var practicePoints = [10, 20, 30, 55, 50];
 	controller();
+	
+	// TODO amadu - connect this up (:
+	// $('#colorpickerHolder').ColorPicker({flat: true});
 });
-
-//$('#colorpickerHolder').ColorPicker({flat: true});
 
 function controller() {
 	//get list from peter

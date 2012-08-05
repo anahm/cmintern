@@ -55,9 +55,7 @@ if (typeof objects == "undefined" || objects.length == 1) {
 	} else {
 		numberofBins = Math.round((endTimeSave - startTimeSave)/60);
 	}
-	if (numberofBins == 0) {
-		numberofBins = 1;
-	}
+	if (numberofBins > 0) {
 	pointsSave = listIterator(objects, numberofBins, startTimeSave, endTimeSave);
 
 
@@ -84,9 +82,11 @@ if (typeof objects == "undefined" || objects.length == 1) {
 		if (showPoints) drawPoint(i - 1, pixelPoints[i - 1]);
 	}
 	if (showPoints) drawPoint(pointsLen - 1, pixelPoints[pointsLen - 1]);
+} else {
+	noTabs();
+	}
 }
 }
-
 
 function drawExtraLabels(points, startTime, endTime) {
 	// this is ali derping around with text. don't laugh please

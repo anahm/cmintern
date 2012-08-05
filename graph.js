@@ -10,7 +10,7 @@ var context = canvas.getContext("2d");
 var shadeUnderneath = false;
 
 // variables for points
-var color = new jsColor("red");
+var pointFillColor = "#8ED6FF";
 var radius = 3;
 
 
@@ -30,8 +30,11 @@ function drawGraph(pixelPoints) {
 function plotPoint(binIndex, singlePoint) {
 	context.beginPath();
 	context.arc(binIndex, singlePoint)
-	
-	
+	context.fillStyle = pointFillColor;
+	context.fill();
+	context.lineWidth = 1;
+	context.strokeStyle = "black";
+	context.stroke();
 }
 
 function drawLine(pointOne, pointTwo) {

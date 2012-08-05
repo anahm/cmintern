@@ -3,12 +3,12 @@
  */
 function getCurrentTabsNum() {
 	chrome.tabs.query({} /* get ALL the tabs! */, function(tabs) {
-		document.getElementById("currentTabsNum").innerHTML = tabs.length;
+		$("#currentTabsNum").html(tabs.length);
 	});
 }
 
 function getEventsNum() {
 	getTabEvents(function(events) {
-		document.getElementById("eventsNum").innerHTML = events.length;
+		$("#eventsNum").html(events.length);
 	});
 }

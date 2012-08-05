@@ -42,10 +42,7 @@ function drawGraph(points, startTime, endTime){
 	if (shadeUnderneath) {
 		drawFill(pixelPoints);
 	}
-	var drawLabels = true;
-	if (drawLabels) {
-		drawExtraLabels(points, startTime, endTime);
-	}
+	drawExtraLabels(points, startTime, endTime);
 
 	for (i = 1; i < pointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);

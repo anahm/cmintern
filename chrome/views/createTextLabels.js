@@ -10,7 +10,7 @@ var textColor = "#333";
 var maxXShown = 20;
 var maxYShown = 10;
 
-var gridLineColor = "#BBBBBB";
+var gridLineColor = "#DDDDDD";
 
 // TODO add vertical and horiz lines
 var showVerticalLines = true;

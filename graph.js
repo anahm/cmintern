@@ -7,6 +7,8 @@
 // creating jsGraphics object
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
+var width = canvas.width;
+var height = canvas.height;
 var shadeUnderneath = false;
 
 // variables for points
@@ -18,10 +20,11 @@ var lineWidth = 2;
 
 var binGap = width/pixelPoints.length();
 
-function drawGraph(pixelPoints) {
+function drawGraph(points) {
+	var pointsLen = points.length();
+	var pixelPoints = convertToPixels(points, height);
 	plotPoint(0, points[0]);
-	var pointsLen = pixelPoints.length();
-	for (int i = 1; i < pixelPointsLen; i++) {
+	for (int i = 1; i < pointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
 		plotPoint(i, pixelPoints[i], i);
 		if (shadeUnderneath) {

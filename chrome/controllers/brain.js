@@ -38,10 +38,10 @@ $(document).ready(function() {
 	$("#toggleFill").click(function() {
 		setShowFilling(!getShowFilling());
 	});
-	$("#toggleHorizontalGrid").click(function() {
+	$("#toggleHorizontalLines").click(function() {
 		setShowHorizLines(!getShowHorizLines());
 	});
-	$("#toggleVerticalGrid").click(function() {
+	$("#toggleVerticalLines").click(function() {
 		setShowVerticalLines(!getShowVerticalLines());
 	});
 	// TODO amadu - connect this up (:

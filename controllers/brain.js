@@ -1,7 +1,7 @@
 /*
  * brain.js
  *
- * where all the shit happens
+ * where all the <s>shit</s>(guys. there are kids here) happens
  */
 
 $(document).ready(function() {
@@ -14,21 +14,12 @@ $(document).ready(function() {
 });
 
 function controller() {
-	//get list from peter
-	//get numberofBins, start and end time
-	var numberofBins = 0;
-	var startTime = 0;
-	var endTime = 100;
-//	var points = listIterator(list, numberOfBins, startTime, endTime);
-	var points = new Array();
-	points.push(0);
-	points.push(2);
-	points.push(1);
-	points.push(3);
-	points.push(10);
-	drawGraph(points);	
-
-	addXAxisLabels(points.length, startTime);
+	getTabEvents(function(points) {
+		var numberofBins = 0;
+		var startTime = points[0].time;
+		var endTime = points[points.length-1].time;
+		drawGraph(points);
+	});
 }
 
 

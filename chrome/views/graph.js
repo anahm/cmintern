@@ -42,7 +42,10 @@ function drawGraph(points) {
 	}
 
 	// this is ali derping around with text. don't laugh please
+	var yAxisCoord = height - (heightPadding / 2);
 	addXAxisLabels(pointsLen, startTime, endTime, yAxisCoord);
+
+	var xAxisCoord = widthPadding / 2;
 }
 
 // literally drawing a tiny circle

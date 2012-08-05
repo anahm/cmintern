@@ -21,17 +21,17 @@ from google.appengine.ext import db
 from google.appengine.api import users
 
 class TabCount(db.Model):
-	time = db.StringProperty(required=True)
+	time = db.IntegerProperty(required=True)
 	tabsCount = db.IntegerProperty(required=True)
 
 class TabExtensionHandler(webapp2.RequestHandler):
     def post(self):
     	events = json.loads(self.request.get("events"))
         for event in events:
-        	e = TabCount(time = event.time,
-        				 tabsCount = event.tabs)
+        	e = TabCount(time = event["time"],
+        				 tabsCount = event["tabs"])
         	e.put()
-        self.response.out.write("Boo")
+        self.response.out.write("Boo") 
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):

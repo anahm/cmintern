@@ -25,6 +25,7 @@ function plotPoint(singlePoint) {
 }
 
 function drawLine(pointOne, pointTwo, shadeUnderneath) {
+	
 }
 
 function setColor(color) {

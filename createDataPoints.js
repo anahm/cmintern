@@ -4,7 +4,7 @@ function controller() {
 	//get height, width
 	var points = listIterator(list, numberOfBins, startTime, endTime);
 	convertToPixels(points, numberOfBins, height, width);
-	
+	drawGraph(points);	
 }
 
 function convertToPixels (points, numberOfBins, height, width) {

@@ -24,7 +24,7 @@ div#header {
     padding-bottom:10px;  
 }
 
-div#title a{
+div#title {
     color: #14467a;
     text-align: center;
     font-family: sans-serif;

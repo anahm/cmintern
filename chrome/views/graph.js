@@ -16,7 +16,6 @@ function init() {
 var widthPadding = 100;
 var heightPadding = 100;
 var binGap = -1;
-var shadeUnderneath = true;
 
 // variables for points
 var pointFillColor = "#0b5c8f";
@@ -33,19 +32,26 @@ var showLines = true;
 var showFilling = true;
 var graphFillColor = '#b9d5ec';
 
+var pointsSave;
+var startTimeSave;
+var endTimeSave;
+
 function drawGraph(points, startTime, endTime){
+  pointsSave = points;
+  startTimeSave = startTime;
+  endTimeSave = endTime;
   if (showFilling) {	
-	var lingrad = context.createLinearGradient(0,0,0,height);
-    lingrad.addColorStop(0, '#fff');
-    lingrad.addColorStop(1, graphFillColor);
-	setFillColor(lingrad);
+//	var lingrad = context.createLinearGradient(0,0,0,height);
+   // lingrad.addColorStop(0, '#fff');
+   // lingrad.addColorStop(1, graphFillColor);
+//	setFillColor(lingrad);
   }
 	binGap = (width - widthPadding)/(points.length - 1);
 
 	var pointsLen = points.length;
 	var pixelPoints = convertToPixels(points, height, heightPadding);
 
-	if (shadeUnderneath) {
+	if (showFilling) {
 		drawFill(pixelPoints);
 	}
 	drawExtraLabels(points, startTime, endTime);
@@ -134,14 +140,20 @@ function noTabs() {
 
 function setShowPoints(show) {
 	showPoints = show;
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	drawGraph(pointsSave, startTimeSave, endTimeSave);
 }
 
 function setShowLines(show) {
 	showLines = show;
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	drawGraph(pointsSave, startTimeSave, endTimeSave);
 }
 
 function setShowFilling(show) {
 	showFilling = show;
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	drawGraph(pointsSave, startTimeSave, endTimeSave);
 }
 
 function getShowPoints() {

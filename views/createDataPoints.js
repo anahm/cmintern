@@ -19,7 +19,7 @@ function convertToPixels (points, height, heightPadding) {
 	var actualPoints = new Array();
 	for (i = 0; i < points.length; i++) {
 		var point = points[i];
-		yValues.push(height - height*point/largest);
+		yValues.push(height - height*point/largest + heightPadding);
 	}
 	return yValues;
 }

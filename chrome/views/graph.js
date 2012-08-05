@@ -27,7 +27,7 @@ var lineWidth = 2;
 var strokeStyle = "black";
 
 
-function drawGraph(points) {
+function drawGraph(points, startTime, endTime){
 	binGap = (width - widthPadding)/(points.length - 1);
 	var pointsLen = points.length;
 	var pixelPoints = convertToPixels(points, height, heightPadding);

@@ -24,10 +24,12 @@ function listIterator(list, numberOfBins, startTime, endTime) {
 	}
 	var timeBinGap = (endTime - startTime) / numberOfBins;
 	var timeObject = 0;
-	while ( timeObject < list.length ) {	
+	console.log(list);
+	while (timeObject < list.length ) {	
 		if (list[timeObject].time > endTime) break;
 		if (list[timeObject].time >= startTime) {
 			if (list[timeObject].time <= startTime + (binIndex * timeBinGap)){
+				alert(list[timeObject]);
 			    points[binIndex] = list[timeObject].tabs;
 				timeObject++;
 			} else {

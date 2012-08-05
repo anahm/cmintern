@@ -3,7 +3,7 @@
  */
 $(document).ready(function() {
 	getCurrentTabsNum();
-	getEventsNum();
+	// getEventsNum();
 	$("#graphButton").click(function() {
 			chrome.tabs.create({url: "views/index.html"}, function() { });
 	});

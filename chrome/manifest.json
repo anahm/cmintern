@@ -1,20 +1,19 @@
 {
-  "name": "CMInterns Extensions woohoo!",
-  "version": "0.1",
+  "name": "TabStats",
+  "version": "1.0",
   "manifest_version": 2,
-  "description": "The first extension that I made.",
+  "description": "TabStats is a basic chrome extension that tracks the number of open tabs in chrome.",
   "browser_action": {
     "default_icon": "views/icon.png",
     "default_popup": "views/popup.html"
   },
   "permissions": [
-    "tabs", "history", "storage",
-    "http://awfeftw.appspot.com/"
+    "tabs", "history", "storage"
   ],
   "background": {
     "scripts": ["views/jquery.js", "tracking/utils.js", "tracking/tabEvents.js"]
   },
   "icons": { "16": "icon16.png",
            "48": "icon48.png",
-          "128": "icon128.png" },
+          "128": "icon128.png" }
 }

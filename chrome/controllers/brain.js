@@ -10,7 +10,6 @@ $(document).ready(function() {
 	
 	$("#container").height($(document).height());
 	$("#toggleLine").click(function() {
-		alert("hi");
 		setShowLines(!getShowLines());
 	});
 	$("#togglePoints").click(function() {
@@ -19,7 +18,16 @@ $(document).ready(function() {
 	$("#toggleFill").click(function() {
 		setShowFilling(!getShowFilling());
 	});
-
+	$("#toggleHorizontalGrid").click(function() {
+		setShowHorizLines(!getShowHorizLines());
+		$("#toggleHorizontalGrid").addClass("selected");
+		$("#toggleHorizontalGrid").siblings().removeClass();
+	});
+	$("#toggleVerticalGrid").click(function() {
+		setShowVerticalLines(!getShowVerticalLines());
+		$("#toggleVerticalGrid").addClass("selected");
+		$("#toggleVerticalGrid").siblings().removeClass();
+	});
 	// TODO amadu - connect this up (:
 	// $('#colorpickerHolder').ColorPicker({flat: true});
 });

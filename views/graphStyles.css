@@ -1,0 +1,34 @@
+/*
+ * styles.css
+ *
+ * styles for graph webpage
+ */
+
+html, body{
+    background:#E0F8FD;
+    width:100%;
+    height:100%;
+    padding:0px;
+    margin:0px;
+	font-family: Lato, sans-serif;
+}
+
+div#wrapper{
+    margin-left:50px;
+    width:600px;
+	padding-bottom:30px;
+}
+
+div#header {
+	padding-top:45px;
+    padding-bottom:10px;  
+}
+
+div#title a{
+    padding-bottom:10px;
+    font-weight:bold;
+    font-size:2.3em;
+	color: #345345;
+	text-decoration:none;
+}
+

@@ -4,6 +4,9 @@
  * adding all of the labels and markers for the graph
  */
 
+// TODO change the yAxisCoord
+var yAxisCoord = 100;
+
 // basic variables
 var font = "11pt Calibri";
 
@@ -17,8 +20,8 @@ function addXAxisLabels(numBins, unixTime) {
         context.textAlign = "center";
         context.textBaseline = "middle";
         for (i = 0; i < numBins; i++) {
-        	printDate(i, unixTime);
-        	unixTime += binGap;
+        	printDate((i * binGap), unixTime);
+        	unixTime += timeBinGap;
         }
     } else
     	alert("we hate you.");
@@ -27,8 +30,10 @@ function addXAxisLabels(numBins, unixTime) {
 // yAxisCoord = "base" y coordinate of the axis
 function printDate(xCoord, unixTime) {
 	var prettyTime = new Date(unixTime * 1000);
-	var prettyLabel = timeLabel(
-	context.fillText(timeLabel, xCoord, yAxisCoord);
+	var hours = prettyTime.getHours();
+	var minutes = prettyTime.getMinutes();
+	var prettyTimeLabel = hours + ':' + minutes;
+	context.fillText(prettyTimeLabel, xCoord, yAxisCoord);
 }
 
 function setFont(newFont) {

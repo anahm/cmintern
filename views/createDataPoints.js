@@ -18,17 +18,19 @@ function convertToPixels (points, height, heightPadding) {
 
 function listIterator(list, numberOfBins, startTime, endTime) {
 	var binIndex = 0;
-	var points = new Array();
+	var points = new Array(numberOfBins + 1);
+	for (j = 0; j < numberOfBins + 1; j++) {
+		points[j] = 0;
+	}
 	var timeBinGap = (endTime - startTime) / numberOfBins;
-	for (timeObject in list) {		
-		if (timeObject.time > endTime) break;
-		if (timeObject.time >= startTime) {
-			if (typeof points[binIndex] == 'undefined') {
-				points[binIndex] = 0;
-			}
-			if (timeObject.time <= startTime + (binIndex * timeBinGap)){
-			    if (timeObject.opened) points[binIndex]++;
+	var timeObject = 0;
+	while ( timeObject < list.length ) {	
+		if (list[timeObject].time > endTime) break;
+		if (list[timeObject].time >= startTime) {
+			if (list[timeObject].time <= startTime + (binIndex * timeBinGap)){
+			    if (list[timeObject].created) points[binIndex]++;
 				else points[binIndex]--;
+				timeObject++;
 			} else {
 				binIndex++;
 			}

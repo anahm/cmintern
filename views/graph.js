@@ -31,6 +31,7 @@ function drawGraph(points) {
 	binGap = (width - widthPadding)/(points.length - 1);
 	var pointsLen = points.length;
 	var pixelPoints = convertToPixels(points, height, heightPadding);
+//	alert("boo");
 	drawPoint(0, pixelPoints[0]);
 	if (shadeUnderneath) {
 		drawFill(pixelPoints);

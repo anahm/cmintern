@@ -4,9 +4,11 @@
  * actually draws the graph using <canvas> for html5
  */
 
-// creating jsGraphics object
-var canvas = document.getElementById("canvas");
-var context = canvas.getContext("2d");
+function init() {
+	canvas = document.getElementById("output");
+	context = canvas.getContext("2d");
+}
+
 var shadeUnderneath = false;
 
 // variables for points
@@ -15,13 +17,14 @@ var radius = 3;
 
 // variables for lines
 var lineWidth = 2;
+var strokeStyle = "black";
 
 function drawGraph(pixelPoints) {
-	plotPoint(0, points[0]);
+	drawPoint(0, points[0]);
 	var pointsLen = pixelPoints.length();
-	for (int i = 1; i < pixelPointsLen; i++) {
+	for (i = 1; i < pixelPointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
-		plotPoint(i, pixelPoints[i], i);
+		drawPoint(i, pixelPoints[i], i);
 		if (shadeUnderneath) {
 			drawFill(pixelPoints[i - 1], pixelPoints[i], i);
 		}
@@ -32,8 +35,8 @@ function drawGraph(pixelPoints) {
 }
 
 // literally drawing a tiny circle
-function plotPoint(binIndex, singlePoint) {
-	context.fillStyle = color;
+function drawPoint(binIndex, singlePoint) {
+	context.fillStyle = pointFillColor;
 	context.beginPath();
 	context.arc(binIndex * binGap, singlePoint, radius, 0, 2*Math.PI, true)
 	context.closePath();
@@ -45,7 +48,7 @@ function drawLine(pointOne, pointTwo, binIndex) {
 	context.moveTo(binIndex * binGap , pointOne);
 	context.lineTo(binIndex * binGap , pointTwo);
 	context.lineWidth = lineWidth;
-	context.strokeStyle = color;
+	context.strokeStyle = pointFillColor;
 	context.stroke();
 }
 
@@ -53,15 +56,16 @@ function drawFill(points) {
 	context.beginPath();
 	context.moveTo(0, points[0]);
 	var pointsLen = pixelPoints.length();
-	for (int i = 1; i < pointsLen; i++) {
+	for (i = 1; i < pointsLen; i++) {
 		context.lineTo(i * binGap, points[i]); 
 	}
 	context.closePath();
 	context.lineWidth = 0;
-	context.fillStyle = fillColor;
+	context.fillStyle = pointFillColor;
 	context.fill();
 	context.stroke();
 }
 
 function setColor(color) {
+	pointFillColor = color;
 }

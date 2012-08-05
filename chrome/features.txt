@@ -1,0 +1,15 @@
+list of features (for the side panel)
+
+- dots - complete
+- lines - complete
+- filling - complete
+- horizontal gridlines - complete
+- vertical gridlines - complete
+- show dots right after if repetitive - to come..
+- color of dots - to come..
+- color of lines - to come..
+- color of filling - to come..
+
+
+
+--- in the far future: match with friends...?

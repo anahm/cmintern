@@ -10,6 +10,25 @@ $(document).ready(function() {
 	initPanel();
 	
 	$("#container").height($(document).height());
+
+	$("#lastHour").click(function () {
+		// insert function
+		$("#lastHour").addClass("selected");
+		$("#lastHour").siblings().removeClass();
+	});
+
+	$("#lastSixHours").click(function() {
+		// insert function
+		$("#lastSixHours").addClass("selected");
+		$("#lastSixHours").siblings().removeClass();
+	});
+
+	$("#lastDay").click(function() {
+		// insert function
+		$("#lastDay").addClass("selected");
+		$("#lastDay").siblings().removeClass();
+	});
+
 	$("#toggleLine").click(function() {
 		setShowLines(!getShowLines());
 	});

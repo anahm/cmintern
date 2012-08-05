@@ -71,6 +71,10 @@ p {
 	padding: 0px 10px;
 }
 
+p#timeOptions {
+	padding: 15px 0px 40px 12px;
+}
+
 p#copyright{
 	margin-top: 50px;
 }
@@ -87,12 +91,17 @@ a:hover {
 	opacity: 0.5;
 }
 
-#checkbox {
-	color: #000000;
+.selected {
+	color: #1B5607;
+	font-weight: bold;
 }
 
-.checkbox {
-	width: 100px;
+.selected:hover {
+	opacity: 1;
+}
+
+#checkbox {
+	color: #000000;
 }
 
 canvas#output {

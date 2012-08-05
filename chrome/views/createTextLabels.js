@@ -42,7 +42,17 @@ function setFont(newFont) {
 }
 
 function addYAxisLabels(maxTabs, height, xCoord) {
-	var heightGap = height / maxTabs;
+	// basic initializations
+	context.font = font;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillStyle = textColor;
 
+	var heightGap = height / maxTabs;
+	var yCoord = heightPadding / 2;
+    for (i = maxTabs; i > 0; i--) {
+		context.fillText(i, xCoord, yCoord);
+		yCoord += heightGap;
+	}
 }
 

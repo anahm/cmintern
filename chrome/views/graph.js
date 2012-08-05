@@ -39,15 +39,21 @@ function drawGraph(points, startTime, endTime){
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
 		drawPoint(i, pixelPoints[i], i);
 	}
+	
+	drawLabels(points, startTime, endTime);
+}
 
+function drawLabels(points, startTime, endTime) {
 	// this is ali derping around with text. don't laugh please
 	var extraYPadding = 13;
 	var yAxisCoord = height - (heightPadding / 2) + extraYPadding;
-	addXAxisLabels(pointsLen, startTime, endTime, yAxisCoord);
+	addXAxisLabels(points.length, startTime, endTime, yAxisCoord);
 
 	// need to add because using top left corner of text
-	var extraXPadding = 3;
-	var xAxisCoord = widthPadding / 2 - extraXPadding;
+	var extraXPadding = 13;
+	var largest = Math.max.apply(Math, points);
+	var xAxisCoord = (widthPadding / 2) - extraXPadding;
+	addYAxisLabels(largest, height, (widthPadding / 2));
 }
 
 // literally drawing a tiny circle

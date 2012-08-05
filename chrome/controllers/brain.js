@@ -7,6 +7,7 @@
 $(document).ready(function() {
 	init();
 	controller();
+	initPanel();
 	
 	$("#container").height($(document).height());
 	$("#toggleLine").click(function() {
@@ -27,6 +28,10 @@ $(document).ready(function() {
 	// TODO amadu - connect this up (:
 	// $('#colorpickerHolder').ColorPicker({flat: true});
 });
+
+function initPanel() {
+	$(".displayFeatures").prop("checked", true);
+}
 
 
 function controller() {

@@ -12,25 +12,24 @@ $(document).ready(function() {
 	$("#container").height($(document).height());
 
 	$("#allTime").click(function() {
-		// insert function...
 		$("#allTime").addClass("selected");
 		$("#allTime").siblings().removeClass();
 	});
 
 	$("#lastHour").click(function() {
-		// insert function
+		setStartTime(getEndTime() - 60);
 		$("#lastHour").addClass("selected");
 		$("#lastHour").siblings().removeClass();
 	});
 
 	$("#lastSixHours").click(function() {
-		// insert function
+		setStartTime(getEndTime() - 3600);
 		$("#lastSixHours").addClass("selected");
 		$("#lastSixHours").siblings().removeClass();
 	});
 
 	$("#lastDay").click(function() {
-		// insert function
+		setStartTime(getEndTime() - 86400);
 		$("#lastDay").addClass("selected");
 		$("#lastDay").siblings().removeClass();
 	});

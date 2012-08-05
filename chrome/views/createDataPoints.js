@@ -29,11 +29,11 @@ function listIterator(list, numberOfBins, startTime, endTime) {
 		if (list[timeObject].time > endTime) break;
 		if (list[timeObject].time >= startTime) {
 			if (list[timeObject].time <= startTime + (binIndex * timeBinGap)){
-				alert(list[timeObject]);
 			    points[binIndex] = list[timeObject].tabs;
 				timeObject++;
 			} else {
 				binIndex++;
+				points[binIndex] = points[binIndex - 1];
 			}
 		}
 	}

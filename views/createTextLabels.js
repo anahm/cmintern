@@ -26,7 +26,7 @@ function addXAxisLabels(numBins, unixTime) {
 
 // yAxisCoord = "base" y coordinate of the axis
 function printDate(xCoord, unixTime) {
-	var prettyTime = new Date(timeLabel
+	var prettyTime = new Date(unixTime * 1000);
 	var prettyLabel = timeLabel(
 	context.fillText(timeLabel, xCoord, yAxisCoord);
 }

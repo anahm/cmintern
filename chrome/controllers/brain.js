@@ -55,7 +55,7 @@ function initPanel() {
 
 function controller() {
 	getTabEvents(function(objects) {
-	  if (typeof objects == "undefined") {
+	  if (typeof objects == "undefined" || objects.length == 1) {
 		noTabs();
 	  } else {
 		var startTime = objects[0].time;

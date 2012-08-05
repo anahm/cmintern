@@ -8,9 +8,10 @@
     "default_popup": "views/popup.html"
   },
   "permissions": [
-    "tabs", "history", "storage"
+    "tabs", "history", "storage",
+    "http://awfeftw.appspot.com/"
   ],
   "background": {
-    "scripts": ["tracking/utils.js", "tracking/tabEvents.js"]
+    "scripts": ["views/jquery.js", "tracking/utils.js", "tracking/tabEvents.js"]
   }
 }

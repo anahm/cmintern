@@ -3,6 +3,13 @@ function writeTabEvent(numOfTabs) {
 		chrome.storage.local.set({
 			events: events
 		}, function() {
+		/*
+			e = [{time: getCurrentTime(), tabs: numOfTabs}];
+			$.post("http://awfeftw.appspot.com/post", 
+				{events: JSON.stringify(e)}, function(data) {
+					console.log(data);
+				});
+		*/
 		});
 	});
 }
@@ -14,7 +21,6 @@ function getTabEventsToWrite(eventToWrite, callback) {
 			callback(events);
 		} else {
 			events[events.length] = eventToWrite;
-			console.log(events);
 			callback(events);
 		}
 	});

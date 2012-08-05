@@ -41,7 +41,8 @@ function drawGraph(points, startTime, endTime){
 	}
 
 	// this is ali derping around with text. don't laugh please
-	var yAxisCoord = height - (heightPadding / 2);
+	var extraYPadding = 13;
+	var yAxisCoord = height - (heightPadding / 2) + extraYPadding;
 	addXAxisLabels(pointsLen, startTime, endTime, yAxisCoord);
 
 	// need to add because using top left corner of text

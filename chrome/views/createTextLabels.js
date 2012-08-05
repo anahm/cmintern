@@ -18,9 +18,10 @@ function addXAxisLabels(numBins, startTime, endTime, yCoord) {
 		context.font = font;
         context.textAlign = "center";
         context.textBaseline = "middle";
-        context.fillColor = textColor;
+        context.fillStyle = textColor;
+        var wPadding = widthPadding / 2;
         for (i = 0; i < numBins; i++) {
-        	printDate((i * binGap), startTime, yCoord);
+        	printDate((i * binGap) + wPadding, startTime, yCoord);
         	startTime += timeBinGap;
         }
     } else
@@ -42,5 +43,6 @@ function setFont(newFont) {
 
 function addYAxisLabels(maxTabs, height, xCoord) {
 	var heightGap = height / maxTabs;
+
 }
 

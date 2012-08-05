@@ -16,6 +16,8 @@ var radius = 3;
 // variables for lines
 var lineWidth = 2;
 
+var binGap = width/pixelPoints.length();
+
 function drawGraph(pixelPoints) {
 	plotPoint(0, points[0]);
 	var pointsLen = pixelPoints.length();

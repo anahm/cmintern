@@ -12,14 +12,15 @@ function init() {
 	setColor("#3ED6FF");
 	setFillColor("#8ED6FF");
 	}
-var widthPadding = 10;
-var heightPadding = 10;
+
+var widthPadding = 100;
+var heightPadding = 100;
 var binGap = -1;
 var shadeUnderneath = true;
 
 // variables for points
 var pointFillColor = "#8ED6FF";
-var radius = 3;
+var radius = 4;
 
 // variables for lines
 var lineWidth = 2;
@@ -31,12 +32,12 @@ function drawGraph(points) {
 	var pointsLen = points.length;
 	var pixelPoints = convertToPixels(points, height, heightPadding);
 	drawPoint(0, pixelPoints[0]);
+	if (shadeUnderneath) {
+		drawFill(pixelPoints);
+	}
 	for (i = 1; i < pointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
 		drawPoint(i, pixelPoints[i], i);
-	}
-	if (shadeUnderneath) {
-		drawFill(pixelPoints);
 	}
 }
 
@@ -54,11 +55,11 @@ function drawPoint(binIndex, singlePoint) {
 
 function drawLine(pointOne, pointTwo, binIndex) {
 	if (binGap > 0) {
-		context.beginPath();
+		context.beginPath();i
 		context.moveTo((binIndex - 1) * binGap + widthPadding/2, pointOne);
 		context.lineTo(binIndex * binGap + widthPadding/2, pointTwo);
-		context.lineWidth = lineWidth;
 		context.strokeStyle = pointFillColor;
+		context.lineWidth = 5;
 		context.stroke();
 	} else
 		alert("we hate you");
@@ -74,9 +75,10 @@ function drawFill(points) {
 	     }
 		context.lineTo(width - widthPadding/2, height - heightPadding/2);
 		context.closePath();
-		context.lineWidth = 0;
+	//	context.lineWidth = 0;
 		context.fillStyle = graphFillColor;
 		context.fill();
+		context.strokeStyle = graphFillColor;
 		context.stroke();
 	} else
 		alert("we hate you");

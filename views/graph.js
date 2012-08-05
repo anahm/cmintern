@@ -39,6 +39,9 @@ function drawGraph(points) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);
 		drawPoint(i, pixelPoints[i], i);
 	}
+
+	// this is ali derping around with text. don't laugh please
+	addXAxisLabels(pointsLen, startTime, endTime, yAxisCoord);
 }
 
 // literally drawing a tiny circle

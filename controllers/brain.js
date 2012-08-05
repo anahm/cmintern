@@ -21,5 +21,3 @@ function controller() {
 		drawGraph(points);
 	});
 }
-
-

@@ -36,25 +36,34 @@ var pointsSave;
 var startTimeSave;
 var endTimeSave;
 
-function drawGraph(points, startTime, endTime){
-  pointsSave = points;
-  startTimeSave = startTime;
-  endTimeSave = endTime;
+function drawGraph(objects){
+	if (typeof startTimeSave == "undefined") 
+		startTimeSave = objects[0].time;
+	if (typeof endTimeSave == "undefined")
+		endTimeSave = objects[objects.length-1].time;
+	var numberofBins = 0;
+	if ((endTimeSave - startTimeSave)/60 > 100) {
+		numberofBins = 100;
+	} else {
+		numberofBins = Math.round((endTimeSave - startTimeSave)/60);
+	}
+	pointsSave = listIterator(objects, numberofBins, startTimeSave, endTimeSave);
+
   if (showFilling) {	
     var lingrad = context.createLinearGradient(0,0,0,height);
     lingrad.addColorStop(0, '#fff');
     lingrad.addColorStop(1, '#b9d5ec');
 	setFillColor(lingrad);
   }
-	binGap = (width - widthPadding)/(points.length - 1);
+	binGap = (width - widthPadding)/(pointsSave.length - 1);
 
-	var pointsLen = points.length;
-	var pixelPoints = convertToPixels(points, height, heightPadding);
+	var pointsLen = pointsSave.length;
+	var pixelPoints = convertToPixels(pointsSave, height, heightPadding);
 
 	if (showFilling) {
 		drawFill(pixelPoints);
 	}
-	drawExtraLabels(points, startTime, endTime);
+	drawExtraLabels(pointsSave, startTimeSave, endTimeSave);
     drawGridLine(widthPadding/2, height - heightPadding/2, width - widthPadding/2, height - heightPadding/2, "#000");
     drawGridLine(widthPadding/2, heightPadding/2 - 13, widthPadding/2, height - heightPadding/2, "#000");  
 
@@ -176,4 +185,14 @@ function setLineColor(color) {
 
 function setGraphFillColor(color) {
 	graphFillColor = color;
+}
+
+function setStartTime(time) {
+	startTimeSave = time;
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	drawGraph(pointsSave, startTimeSave, endTimeSave);
+}
+
+function getEndTime() {
+	return endTimeSave;
 }

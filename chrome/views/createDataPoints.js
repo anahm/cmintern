@@ -18,8 +18,8 @@ function convertToPixels (points, height, heightPadding) {
 
 function listIterator(list, numberOfBins, startTime, endTime) {
 	var binIndex = 0;
-	var points = new Array(numberOfBins + 1);
-	for (j = 0; j < numberOfBins + 1; j++) {
+	var points = new Array(numberOfBins);
+	for (j = 0; j < numberOfBins; j++) {
 		points[j] = 0;
 	}
 	var timeBinGap = (endTime - startTime) / numberOfBins;
@@ -34,6 +34,8 @@ function listIterator(list, numberOfBins, startTime, endTime) {
 				binIndex++;
 				points[binIndex] = points[binIndex - 1];
 			}
+		} else {
+			timeObject++;
 		}
 	}
 	return points;

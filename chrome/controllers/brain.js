@@ -12,17 +12,24 @@ $(document).ready(function() {
 	$("#toggleLine").click(function() {
 		alert("hi");
 		setShowLines(!getShowLines());
+		$("#toggleLine").addClass("selected");
+		$("#toggleLine").siblings().removeClass();
 	});
 	$("#togglePoints").click(function() {
 		setShowPoints(!getShowPoints());
+		$("#togglePoints").addClass("selected");
+		$("#togglePoints").siblings().removeClass();
 	});
 	$("#toggleFill").click(function() {
 		setShowFilling(!getShowFilling());
+		$("#toggleFill").addClass("selected");
+		$("#toggleFill").siblings().removeClass();
 	});
 
 	// TODO amadu - connect this up (:
 	// $('#colorpickerHolder').ColorPicker({flat: true});
 });
+
 
 function controller() {
 	getTabEvents(function(objects) {

@@ -41,10 +41,10 @@ function drawGraph(points, startTime, endTime){
   startTimeSave = startTime;
   endTimeSave = endTime;
   if (showFilling) {	
-//	var lingrad = context.createLinearGradient(0,0,0,height);
-   // lingrad.addColorStop(0, '#fff');
-   // lingrad.addColorStop(1, graphFillColor);
-//	setFillColor(lingrad);
+    var lingrad = context.createLinearGradient(0,0,0,height);
+    lingrad.addColorStop(0, '#fff');
+    lingrad.addColorStop(1, '#b9d5ec');
+	setFillColor(lingrad);
   }
 	binGap = (width - widthPadding)/(points.length - 1);
 

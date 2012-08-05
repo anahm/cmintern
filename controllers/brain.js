@@ -12,10 +12,11 @@ function controller() {
 	var endTime = 100;
 //	var points = listIterator(list, numberOfBins, startTime, endTime);
 	var points = new Array();
-	points.push(3);
+	points.push(0);
 	points.push(2);
+	points.push(1);
+	points.push(3);
 	points.push(10);
-	points.push(7);
 	drawGraph(points);	
 }
 

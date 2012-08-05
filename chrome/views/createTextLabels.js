@@ -52,6 +52,7 @@ function printDate(xCoord, unixTime, yCoord) {
 	var prettyTime = new Date(unixTime * 1000);
 	var hours = prettyTime.getHours();
 	var minutes = prettyTime.getMinutes();
+	minutes = (minutes < 10) ? ("0" + minutes) : minutes;
 	var prettyTimeLabel = hours + ':' + minutes;
 	context.fillText(prettyTimeLabel, xCoord, yCoord);
 }

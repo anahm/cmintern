@@ -24,7 +24,6 @@ function listIterator(list, numberOfBins, startTime, endTime) {
 	}
 	var timeBinGap = (endTime - startTime) / numberOfBins;
 	var timeObject = 0;
-	console.log(list);
 	while (timeObject < list.length ) {	
 		if (list[timeObject].time > endTime) break;
 		if (list[timeObject].time >= startTime) {

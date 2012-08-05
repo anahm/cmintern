@@ -50,10 +50,10 @@ function drawLabels(points, startTime, endTime) {
 	addXAxisLabels(points.length, startTime, endTime, yAxisCoord);
 
 	// need to add because using top left corner of text
-	var extraXPadding = 13;
+	var extraXPadding = 17;
 	var largest = Math.max.apply(Math, points);
 	var xAxisCoord = (widthPadding / 2) - extraXPadding;
-	addYAxisLabels(largest, height, (widthPadding / 2));
+	addYAxisLabels(largest, height, xAxisCoord);
 }
 
 // literally drawing a tiny circle

@@ -7,22 +7,35 @@
 // basic variables
 var font = "11pt Calibri";
 var textColor = "#000000";
+var maxXShown = 20;
+var maxYShown = 10;
+
+// TODO add vertical and horiz lines
+var showVerticalLines = false;
+var showHorizLines = false;
 
 /*
  * @param numBins = number of bins in chart
  * @param timeLabel = startTime (change value later)
  */
 function addXAxisLabels(numBins, startTime, endTime, yCoord) {
+	// init stuff
+	var timeBinGap = (endTime - startTime) / numBins;
+	context.font = font;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillStyle = textColor;
+
 	if (binGap > 0) {
-		var timeBinGap = (endTime - startTime) / numBins;
-		context.font = font;
-        context.textAlign = "center";
-        context.textBaseline = "middle";
-        context.fillStyle = textColor;
+		var frequency = parseInt(numBins / maxYShown);
         var wPadding = widthPadding / 2;
+
         for (i = 0; i < numBins; i++) {
-        	printDate((i * binGap) + wPadding, startTime, yCoord);
+        	if (numBins < maxXShown || i % frequency == 0)
+        		printDate((i * binGap) + wPadding, startTime, yCoord);
         	startTime += timeBinGap;
+			if (showHorizLines)
+				drawHorizLines();
         }
     } else
     	alert("we hate you.");
@@ -48,11 +61,29 @@ function addYAxisLabels(maxTabs, height, xCoord) {
     context.textBaseline = "middle";
     context.fillStyle = textColor;
 
-	var heightGap = height / maxTabs;
+	var frequency = parseInt(maxTabs / maxYShown);
+	var heightGap = (height - heightPadding) / maxTabs;
 	var yCoord = heightPadding / 2;
     for (i = maxTabs; i > 0; i--) {
-		context.fillText(i, xCoord, yCoord);
+    	if (maxTabs < maxYShown || i % frequency == 0)
+			context.fillText(i, xCoord, yCoord);
+		if (showVerticalLines)
+			drawVerticalLines();
 		yCoord += heightGap;
 	}
+}
+
+function drawVerticalLines() {
+}
+
+function drawHorizLines() {
+}
+
+function setMaxXShown(newMax) {
+	maxXShown = newMax;
+}
+
+function setMaxYShown(newMax) {
+	maxYShown = newMax;
 }
 

@@ -17,6 +17,8 @@ function controller() {
 	points.push(10);
 	points.push(7);
 	drawGraph(points);	
+
+	addXAxisLabels(points.length, startTime);
 }
 
 

@@ -1,3 +1,10 @@
+/*
+ * createDataPoints.js
+ *
+ * taking the list given to us from pete and converting it into
+ * pixel data points for us to draw easier on html canvas
+ */
+
 function convertToPixels (points, height, heightPadding) {
 	var yValues = new Array();
 	var largest = Math.max.apply(Math, points);

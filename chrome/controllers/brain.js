@@ -10,7 +10,6 @@ $(document).ready(function() {
 	
 	$("#container").height($(document).height());
 	$("#toggleLine").click(function() {
-		alert("hi");
 		setShowLines(!getShowLines());
 	});
 	$("#togglePoints").click(function() {

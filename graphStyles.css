@@ -32,3 +32,12 @@ div#title a{
 	text-decoration:none;
 }
 
+#title {
+    color:#14467a;
+    text-align: center;
+    font-family: monospace;
+    letter-spacing: 2px;
+    position: absolute;
+    left: 10px;
+}
+

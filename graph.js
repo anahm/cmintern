@@ -5,27 +5,39 @@
  */
 
 // creating jsGraphics object
-var gr = new jsgraphics(document.getElementById("canvas");
-var color = new jsColor("red");
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
 var shadeUnderneath = false;
 
-function drawGraph(points) {
-	plotPoint(points[0]);
-	var pointsLen = points.length();
-	for (int i = 1; i < pointsLen; i++) {
-		drawLine(points[0], points[i], shadeUnderneath);
-		plotPoint(points[i]);
+// variables for points
+var color = new jsColor("red");
+var radius = 3;
+
+
+function drawGraph(pixelPoints) {
+	plotPoint(0, points[0]);
+	var pointsLen = pixelPoints.length();
+	for (int i = 1; i < pixelPointsLen; i++) {
+		drawLine(points[0], pixelPoints[i]);
+		plotPoint(i, pixelPoints[i]);
+		if (shadeUnderneath) {
+			drawFill(points[0], pixelPoints[i]);
+		}
 	}
 }
 
 // literally drawing a tiny circle
-function plotPoint(singlePoint) {
+function plotPoint(binIndex, singlePoint) {
+	context.beginPath();
+	context.arc(binIndex, singlePoint)
 	
 	
 }
 
-function drawLine(pointOne, pointTwo, shadeUnderneath) {
-	
+function drawLine(pointOne, pointTwo) {
+}
+
+function drawFill(pointOne, pointTwo) {
 }
 
 function setColor(color) {

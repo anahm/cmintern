@@ -11,20 +11,25 @@ $(document).ready(function() {
 	
 	$("#container").height($(document).height());
 
-	$("#lastHour").click(function () {
-		// insert function
+	$("#allTime").click(function() {
+		$("#allTime").addClass("selected");
+		$("#allTime").siblings().removeClass();
+	});
+
+	$("#lastHour").click(function() {
+		setStartTime(getEndTime() - 60);
 		$("#lastHour").addClass("selected");
 		$("#lastHour").siblings().removeClass();
 	});
 
 	$("#lastSixHours").click(function() {
-		// insert function
+		setStartTime(getEndTime() - 3600);
 		$("#lastSixHours").addClass("selected");
 		$("#lastSixHours").siblings().removeClass();
 	});
 
 	$("#lastDay").click(function() {
-		// insert function
+		setStartTime(getEndTime() - 86400);
 		$("#lastDay").addClass("selected");
 		$("#lastDay").siblings().removeClass();
 	});
@@ -49,6 +54,7 @@ $(document).ready(function() {
 });
 
 function initPanel() {
+	$("#allTime").addClass("selected");
 	$(".displayFeatures").prop("checked", true);
 }
 
@@ -58,7 +64,7 @@ function controller() {
 	  if (typeof objects == "undefined" || objects.length == 1) {
 		noTabs();
 	  } else {
-		var startTime = objects[0].time;
+	/*	var startTime = objects[0].time;
 		var endTime = objects[objects.length-1].time;
 		var numberofBins = 0;
 		if ((endTime - startTime)/60 > 100) {
@@ -67,7 +73,7 @@ function controller() {
 			numberofBins = Math.round((endTime - startTime)/60);
 		}
 		var points = listIterator(objects, numberofBins, startTime, endTime);
-		drawGraph(points, startTime, endTime);
+	*/	drawGraph(objects);
 	  }
 	});
 }

@@ -16,6 +16,7 @@ function init() {
 var widthPadding = 100;
 var heightPadding = 100;
 var binGap = -1;
+var shadeUnderneath = true;
 
 // variables for points
 var pointFillColor = "#0b5c8f";
@@ -39,8 +40,10 @@ var endTimeSave;
 function drawGraph(objects){
 	if (typeof startTimeSave == "undefined") 
 		startTimeSave = objects[0].time;
-	if (typeof endTimeSave == "undefined")
-		endTimeSave = objects[objects.length-1].time;
+	if (typeof endTimeSave == "undefined") {
+		var objectsLength = objects.length - 1;
+		endTimeSave = objects[objectsLength].time;
+		}
 	var numberofBins = 0;
 	if ((endTimeSave - startTimeSave)/60 > 100) {
 		numberofBins = 100;
@@ -49,10 +52,11 @@ function drawGraph(objects){
 	}
 	pointsSave = listIterator(objects, numberofBins, startTimeSave, endTimeSave);
 
+
   if (showFilling) {	
-    var lingrad = context.createLinearGradient(0,0,0,height);
+	var lingrad = context.createLinearGradient(0,0,0,height);
     lingrad.addColorStop(0, '#fff');
-    lingrad.addColorStop(1, '#b9d5ec');
+    lingrad.addColorStop(1, graphFillColor);
 	setFillColor(lingrad);
   }
 	binGap = (width - widthPadding)/(pointsSave.length - 1);
@@ -60,7 +64,7 @@ function drawGraph(objects){
 	var pointsLen = pointsSave.length;
 	var pixelPoints = convertToPixels(pointsSave, height, heightPadding);
 
-	if (showFilling) {
+	if (shadeUnderneath) {
 		drawFill(pixelPoints);
 	}
 	drawExtraLabels(pointsSave, startTimeSave, endTimeSave);
@@ -151,20 +155,14 @@ function noTabs() {
 
 function setShowPoints(show) {
 	showPoints = show;
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	drawGraph(pointsSave, startTimeSave, endTimeSave);
 }
 
 function setShowLines(show) {
 	showLines = show;
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	drawGraph(pointsSave, startTimeSave, endTimeSave);
 }
 
 function setShowFilling(show) {
 	showFilling = show;
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	drawGraph(pointsSave, startTimeSave, endTimeSave);
 }
 
 function getShowPoints() {

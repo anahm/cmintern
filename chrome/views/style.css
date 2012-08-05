@@ -2,7 +2,6 @@ body {
 	background: url('cubes.png');
 	text-align: center;
 	font-family: "Cabin", sans-serif;
-	text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
 	font-weight: bold;
 	padding: 0;
 	margin: 0;
@@ -10,7 +9,7 @@ body {
 #container {
 	width: 80%;
 	margin: 0 auto;
-	padding: 50px 30px;
+	padding: 0 30px 30px;
 	background: rgba(255,255,255,0.8);
 	border: 1px solid #ccc;
 	border-width: 0px 1px;
@@ -20,11 +19,12 @@ h1 {
 	font-weight: bold;
 	font-size: 35px;
 	line-height: 32px;
-	color: #14467a;
+	color: #fff;
 	padding: 0;
 	margin: 3px 0 10px;
 	text-align: right;
-	border-bottom: 1px solid #3f81c5;
+	border-bottom: 1px solid #fff;
+	text-shadow: 0px 0px 5px rgba(0,0,0,.9);
 }
 h3 {
 	font-weight: normal;
@@ -34,6 +34,15 @@ h3 {
 	line-height: normal;
 	text-align: right;
 	text-transform: uppercase;
+}
+header {
+	padding: 80px 10px 10px 10px;
+	border: 1px solid #896608;
+	border-top: 0px;
+	background: -webkit-linear-gradient(#ff9e00 0%, #a8640d 100%);
+	border-radius: 0 0 5px 5px;
+	margin-bottom: 20px;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.5);	
 }
 img {
 	padding: 10px;
@@ -53,13 +62,40 @@ p {
 	padding: 0px 20px;
 }
 a {
-	color: #990000;
+	color: #3f81c5;
 	-webkit-transition: 0.3s opacity;
 	-moz-transition: 0.3s opacity;
+	text-decoration: none;
 }
 a:hover {
 	opacity: 0.5;
 }
 canvas#output {
-	width: 100%;	
+	float: left;
+	width: 75%;	
+}
+div#options{
+	width: 25%;
+	padding: 15px;
+	float: left;
+	background: #f0f0f0;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+
+}
+div#options h3 {
+	color: #333;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: left;
+	margin-bottom: 0px;
+}
+div#options p{
+	margin: 0;
+	font-size: 14px;
+	line-height: 20px;
+}
+.clear {
+	clear: both;
 }

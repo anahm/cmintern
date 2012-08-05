@@ -79,6 +79,11 @@ p#copyright{
 	margin-top: 50px;
 }
 
+p#copyright a {
+	color: inherit;
+	text-decoration: underline;
+}
+
 a {
 	/* color: #3f81c5; */
 	color: #000000;

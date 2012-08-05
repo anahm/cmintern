@@ -29,7 +29,7 @@ var strokeStyle = "black";
 function drawGraph(points) {
 	binGap = (width - widthPadding)/points.length;
 	var pointsLen = points.length;
-	var pixelPoints = convertToPixels(points, height);
+	var pixelPoints = convertToPixels(points, height, heightPadding);
 	drawPoint(0, pixelPoints[0]);
 	for (i = 1; i < pointsLen; i++) {
 		drawLine(pixelPoints[i - 1], pixelPoints[i], i);

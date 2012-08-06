@@ -23,6 +23,7 @@ function listIterator(list, numberOfBins, startTime, endTime) {
 		points[j] = 0;
 	}
 	var timeBinGap = (endTime - startTime) / numberOfBins;
+	var shadeUnderneath = true;
 	var timeObject = 0;
 	while (timeObject < list.length ) {	
 		if (list[timeObject].time > endTime) break;
@@ -35,6 +36,7 @@ function listIterator(list, numberOfBins, startTime, endTime) {
 				points[binIndex] = points[binIndex - 1];
 			}
 		} else {
+			points[0] = list[timeObject].tabs;
 			timeObject++;
 		}
 	}

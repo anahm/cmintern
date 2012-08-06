@@ -12,18 +12,19 @@ $(document).ready(function() {
 	$("#container").height($(document).height());
 
 	$("#allTime").click(function() {
+		resetStartTime();
 		$("#allTime").addClass("selected");
 		$("#allTime").siblings().removeClass();
 	});
 
 	$("#lastHour").click(function() {
-		setStartTime(getEndTime() - 60);
+		setStartTime(getEndTime() - 3600);
 		$("#lastHour").addClass("selected");
 		$("#lastHour").siblings().removeClass();
 	});
 
 	$("#lastSixHours").click(function() {
-		setStartTime(getEndTime() - 3600);
+		setStartTime(getEndTime() - 21600);
 		$("#lastSixHours").addClass("selected");
 		$("#lastSixHours").siblings().removeClass();
 	});

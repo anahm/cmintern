@@ -38,9 +38,9 @@ var endTimeSave;
 var objectsSave;
 
 function drawGraph(objects){
-if (typeof objects == "undefined" || objects.length == 1) {
+  if (typeof objects == "undefined" || objects.length == 1) {
 	noTabs();
-} else {
+  } else {
 	objectsSave = objects;
 	if (typeof startTimeSave == "undefined") 
 		startTimeSave = objects[0].time;
@@ -55,35 +55,35 @@ if (typeof objects == "undefined" || objects.length == 1) {
 		numberofBins = Math.round((endTimeSave - startTimeSave)/60);
 	}
 	if (numberofBins > 0) {
-	pointsSave = listIterator(objects, numberofBins, startTimeSave, endTimeSave);
+		pointsSave = listIterator(objects, numberofBins, startTimeSave, endTimeSave);
 
-  if (showFilling) {	
-	var lingrad = context.createLinearGradient(0,0,0,height);
-    lingrad.addColorStop(0, '#fff');
-    lingrad.addColorStop(1, '#b9d5ec');
-	setFillColor(lingrad);
+	  	if (showFilling) {	
+			var lingrad = context.createLinearGradient(0,0,0,height);
+			lingrad.addColorStop(0, '#fff');
+   			lingrad.addColorStop(1, '#b9d5ec');
+			setFillColor(lingrad);
+  		}
+		binGap = (width - widthPadding)/(pointsSave.length - 1);
+
+		var pointsLen = pointsSave.length;
+		var pixelPoints = convertToPixels(pointsSave, height, heightPadding);
+
+		if (showFilling) {
+			drawFill(pixelPoints);
+		}
+		drawExtraLabels(pointsSave, startTimeSave, endTimeSave);
+    	drawGridLine(widthPadding/2, height - heightPadding/2, width - widthPadding/2, height - heightPadding/2, "#000");
+   		drawGridLine(widthPadding/2, heightPadding/2 - 13, widthPadding/2, height - heightPadding/2, "#000");  
+
+		for (i = 1; i < pointsLen; i++) {
+			if (showLines) drawLine(pixelPoints[i - 1], pixelPoints[i], i);
+			if (showPoints) drawPoint(i - 1, pixelPoints[i - 1]);
+		}
+		if (showPoints) drawPoint(pointsLen - 1, pixelPoints[pointsLen - 1]);
+	} else {
+		noTabs();
+	}
   }
-	binGap = (width - widthPadding)/(pointsSave.length - 1);
-
-	var pointsLen = pointsSave.length;
-	var pixelPoints = convertToPixels(pointsSave, height, heightPadding);
-
-	if (showFilling) {
-		drawFill(pixelPoints);
-	}
-	drawExtraLabels(pointsSave, startTimeSave, endTimeSave);
-    drawGridLine(widthPadding/2, height - heightPadding/2, width - widthPadding/2, height - heightPadding/2, "#000");
-    drawGridLine(widthPadding/2, heightPadding/2 - 13, widthPadding/2, height - heightPadding/2, "#000");  
-
-	for (i = 1; i < pointsLen; i++) {
-		if (showLines) drawLine(pixelPoints[i - 1], pixelPoints[i], i);
-		if (showPoints) drawPoint(i - 1, pixelPoints[i - 1]);
-	}
-	if (showPoints) drawPoint(pointsLen - 1, pixelPoints[pointsLen - 1]);
-} else {
-	noTabs();
-	}
-}
 }
 
 function drawExtraLabels(points, startTime, endTime) {
@@ -208,4 +208,10 @@ function setStartTime(time) {
 
 function getEndTime() {
 	return endTimeSave;
+}
+
+function resetStartTime() {
+	startTimeSave = objectsSave[0].time;
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	controller();
 }

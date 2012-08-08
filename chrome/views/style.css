@@ -151,7 +151,7 @@ div#options p{
 	margin: 2px;
 }
 
-.color :hover{
+input.color :hover{
 	width:45px;
 }
 

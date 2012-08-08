@@ -18,8 +18,8 @@ var heightPadding = 100;
 var binGap = -1;
 
 // variables for points
-var pointFillColor = "#0b5c8f";
-var lineColor = "#0e6aa4";
+var pointFillColor = document.getElementById("pointcolor").style.backgroundColor;
+var lineColor = document.getElementById("linecolor").style.backgroundColor;
 var radius = 4;
 var showPoints = true;
 

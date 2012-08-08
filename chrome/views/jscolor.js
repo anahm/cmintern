@@ -354,7 +354,7 @@ var jscolor = {
 		this.pickerFace = 10; // px
 		this.pickerFaceColor = 'ThreeDFace'; // CSS color
 		this.pickerBorder = 1; // px
-		this.pickerBorderColor = 'ThreeDHighlight ThreeDShadow ThreeDShadow ThreeDHighlight'; // CSS color
+		this.pickerBorderColor = 'ThreeDHighlight ThreeDShadow ThreeDDarkShadow ThreeDHighlight'; // CSS color
 		this.pickerInset = 1; // px
 		this.pickerInsetColor = 'ThreeDShadow ThreeDHighlight ThreeDHighlight ThreeDShadow'; // CSS color
 		this.pickerZIndex = 10000;
@@ -651,7 +651,6 @@ var jscolor = {
 			var dims = getPickerDims(THIS);
 			p.box.style.width = dims[0] + 'px';
 			p.box.style.height = dims[1] + 'px';
-			p.box.style.borderColor = #FF00FF;
 
 			// picker border
 			p.boxB.style.position = 'absolute';

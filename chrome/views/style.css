@@ -145,4 +145,11 @@ div#options p{
 	clear: both;
 }
 
+div#colorpicker {
+	width: 23%;
+	float: right;
+	box-sizing: border-box;
+}
+
+
 

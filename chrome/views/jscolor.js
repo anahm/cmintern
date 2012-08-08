@@ -651,6 +651,7 @@ var jscolor = {
 			var dims = getPickerDims(THIS);
 			p.box.style.width = dims[0] + 'px';
 			p.box.style.height = dims[1] + 'px';
+			p.box.style.borderColor = #FF00FF;
 
 			// picker border
 			p.boxB.style.position = 'absolute';

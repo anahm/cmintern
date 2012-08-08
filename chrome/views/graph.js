@@ -30,7 +30,7 @@ var showLines = true;
 
 // variables for filling
 var showFilling = true;
-var graphFillColor = '#b9d5ec';
+var graphFillColor = document.getElementById("graphcolor").style.backgroundColor;
 
 var pointsSave;
 var startTimeSave;

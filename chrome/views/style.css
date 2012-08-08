@@ -146,9 +146,13 @@ div#options p{
 }
 
 div#colorpicker {
-	width: 23%;
-	float: right;
-	box-sizing: border-box;
+	width: 14px;
+	height: 14px;
+	margin: 2px;
+}
+
+input#colorpicker :hover{
+	width:45px;
 }
 
 

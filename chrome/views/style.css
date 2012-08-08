@@ -145,13 +145,13 @@ div#options p{
 	clear: both;
 }
 
-div#colorpicker {
+.color {
 	width: 14px;
 	height: 14px;
 	margin: 2px;
 }
 
-input#colorpicker :hover{
+.color :hover{
 	width:45px;
 }
 

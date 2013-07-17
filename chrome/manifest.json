@@ -1,6 +1,6 @@
 {
   "name": "TabStats",
-  "version": "1.2",
+  "version": "1.3",
   "manifest_version": 2,
   "description": "TabStats is a basic chrome extension that tracks the number of open tabs in chrome.",
   "browser_action": {

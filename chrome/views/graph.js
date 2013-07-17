@@ -9,8 +9,6 @@ function init() {
 	context = canvas.getContext("2d");
 	width = canvas.width;
 	height = canvas.height;
-	
-
 }
 
 var widthPadding = 100;
@@ -18,8 +16,10 @@ var heightPadding = 100;
 var binGap = -1;
 
 // variables for points
-var pointFillColor = document.getElementById("pointcolor").style.backgroundColor;
-var lineColor = document.getElementById("linecolor").style.backgroundColor;
+//var pointFillColor = document.getElementById("pointcolor").value;
+var pointFillColor = "#0B5C8F";
+var lineColor = "#0B5C8F";
+// var lineColor = document.getElementById("linecolor").style.backgroundColor;
 var radius = 4;
 var showPoints = true;
 
@@ -30,7 +30,8 @@ var showLines = true;
 
 // variables for filling
 var showFilling = true;
-var graphFillColor = document.getElementById("graphcolor").style.backgroundColor;
+var graphFillColor = '#b9d5ec';
+var graphFillColorBase = '#b9d5ec'; 
 
 var pointsSave;
 var startTimeSave;
@@ -60,7 +61,7 @@ function drawGraph(objects){
 	  	if (showFilling) {	
 			var lingrad = context.createLinearGradient(0,0,0,height);
 			lingrad.addColorStop(0, '#fff');
-   			lingrad.addColorStop(1, '#b9d5ec');
+   			lingrad.addColorStop(1, graphFillColorBase);
 			setFillColor(lingrad);
   		}
 		binGap = (width - widthPadding)/(pointsSave.length - 1);
@@ -143,7 +144,8 @@ function drawFill(points) {
 }
 
 function setPointColor(color) {
-	pointFillColor = color;
+	pointFillColor = "#" +color;
+	drawGraph(objectsSave);
 }
 
 function setFillColor(color) {
@@ -193,11 +195,13 @@ function getShowFilling() {
 }
 
 function setLineColor(color) {
-	lineColor = color;
+	lineColor = "#" + color;
+	drawGraph(objectsSave);
 }
 
 function setGraphFillColor(color) {
-	graphFillColor = color;
+	graphFillColorBase = "#" +color;
+	drawGraph(objectsSave);
 }
 
 function setStartTime(time) {

@@ -145,4 +145,15 @@ div#options p{
 	clear: both;
 }
 
+.color {
+	width: 14px;
+	height: 14px;
+	margin: 2px;
+}
+
+.color:hover{
+	width:50px;
+}
+
+
 

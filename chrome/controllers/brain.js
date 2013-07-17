@@ -6,9 +6,10 @@
 
 $(document).ready(function() {
 	init();
+
 	controller();
 	initPanel();
-	
+
 	$("#container").height($(document).height());
 
 	$("#allTime").click(function() {
@@ -49,6 +50,18 @@ $(document).ready(function() {
 	});
 	$("#toggleVerticalLines").click(function() {
 		setShowVerticalLines(!getShowVerticalLines());
+	});
+
+	$("#graphcolor").change(function() {
+		setGraphFillColor(this.color);
+	});
+
+	$("#linecolor").change(function() {
+		setLineColor(this.color);
+	});
+
+	$("#pointcolor").change(function() {
+		setPointColor(this.color);
 	});
 	// TODO amadu - connect this up (:
 	// $('#colorpickerHolder').ColorPicker({flat: true});

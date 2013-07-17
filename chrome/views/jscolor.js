@@ -782,6 +782,7 @@ var jscolor = {
 
 			// redraw the slider image
 			var seg = jscolor.picker.sld.childNodes;
+
 			switch(modeID) {
 				case 0:
 					var rgb = HSV_RGB(THIS.hsv[0], THIS.hsv[1], 1);
